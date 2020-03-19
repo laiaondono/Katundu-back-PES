@@ -21,25 +21,22 @@ exports.addMessage = functions.https.onRequest(async (req, res) => {
 
 exports.signup = functions.https.onRequest(async (req,res) => {
     //Grabing the parameters
-    const username = req.query.username;
-    const password = req.query.password;
-    const name = req.query.name;
+    try{
+    const un = req.query.un;
+    const pw = req.query.pw;
+    const n = req.query.n;
+    const lat = req.query.lat;
+    const lon = req.query.lon;
 
     const snapshot = await admin.database().ref('/users');
-    
-    snapshot.push({username:username,
-            password: password, name: name});
-    res.redirect(303,snapshot.ref.toString());
-    /*
-    var usersRef = ref.child("users");
-    usersRef.set({
-    alanisawesome: {
-    date_of_birth: "June 23, 1912",
-    full_name: "Alan Turing"
-  },
-  gracehop: {
-    date_of_birth: "December 9, 1906",
-    full_name: "Grace Hopper"
-  }
-  */
+      snapshot.push({username:un,
+              password: pw, name: n,
+            latitud: lat, longitud: lon});
+
+      res.send("1");
+    }
+    catch(error)
+    {
+      res.send("0");
+    }
 });
