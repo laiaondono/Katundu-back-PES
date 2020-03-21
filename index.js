@@ -15,10 +15,10 @@ exports.addMessage = functions.https.onRequest(async (req, res) => {
     // Redirect with 303 SEE OTHER to the URL of the pushed object in the Firebase console.
     res.redirect(303, snapshot.ref.toString());
   });
+
+
 //This function signs up a new user, cheking the correctness of the new values and updating the Database with
 // this new credentials.
-
-
 exports.signup = functions.https.onRequest(async (req,res) => {
     //Grabing the parameters
     try{
@@ -40,3 +40,39 @@ exports.signup = functions.https.onRequest(async (req,res) => {
       res.send("0");
     }
 });
+
+
+//Login function
+exports.login = functions.https.onRequest(async (req,res) => {
+  //Grabing the parameters
+  const un = req.query.un;
+  const pw = req.query.pw;
+
+  //Accessing the collection 'user' and the user's personal document
+  let user = admin.firestore().collection('user').doc(un);
+
+  let getDoc = user.get().then(doc => {
+    if (!doc.exists) {	//the user is not registered
+        res.send("No such user!");
+
+    } else {
+
+	if(doc.data().password === pw){
+            res.send("Successful login");    
+
+        }
+        else {
+            res.send("Incorrect password");
+
+        }
+
+    }
+    return null;
+  })
+  .catch(err => {
+    res.send("Error getting document"+err);
+  });
+
+  
+});
+
