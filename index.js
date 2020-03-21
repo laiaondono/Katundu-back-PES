@@ -76,3 +76,39 @@ exports.login = functions.https.onRequest(async (req,res) => {
   
 });
 
+//This function signs up a new user, cheking the correctness of the new values and updating the Database with
+// this new credentials.
+
+exports.signup = functions.https.onRequest(async (req,res) => {
+  //Grabing the parameters
+  const un = req.query.un;
+  const pw = req.query.pw;
+  const n = req.query.n;
+  const lat = parseFloat(req.query.lat);
+  const lon = parseFloat(req.query.lon);
+  //Checking is document exists, if not creating a new one
+  let docRef = admin.firestore().collection('user').doc(n);
+  let getDoc = docRef.get().then(doc => {
+      if (doc.exists) {
+        res.send("The username already exists");
+        return null;
+        
+      } else {
+        let newdata = admin.firestore().collection('user').doc(n);
+        let setnewdata = newdata.set({
+          username: un,
+          password: pw,
+          name: n,
+          latitud: lat,
+          longitud: lon,
+        });
+        res.send("New user added");
+        return null;
+      }
+    }).catch(err => {
+    console.log('Error getting the user', err);
+    res.send("Something went wrong");
+    });
+
+});
+
