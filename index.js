@@ -87,14 +87,14 @@ exports.signup = functions.https.onRequest(async (req,res) => {
   const lat = parseFloat(req.query.lat);
   const lon = parseFloat(req.query.lon);
   //Checking is document exists, if not creating a new one
-  let docRef = admin.firestore().collection('user').doc(n);
+  let docRef = admin.firestore().collection('user').doc(un);
   let getDoc = docRef.get().then(doc => {
       if (doc.exists) {
         res.send("The username already exists");
         return null;
         
       } else {
-        let newdata = admin.firestore().collection('user').doc(n);
+        let newdata = admin.firestore().collection('user').doc(un);
         let setnewdata = newdata.set({
           username: un,
           password: pw,
