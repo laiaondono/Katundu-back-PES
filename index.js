@@ -109,6 +109,27 @@ exports.signup = functions.https.onRequest(async (req,res) => {
     console.log('Error getting the user', err);
     res.send("Something went wrong");
     });
-
 });
 
+//Delete account function
+exports.deleteaccount = functions.https.onRequest(async (req,res) => {
+    //Grabing the parameters
+    const un = req.query.un;
+
+    //Deleting the account
+    let deleteUser = admin.firestore().collection('user').doc(un).delete();
+
+    //Checking if the account was deleted successfully
+    let userRef = admin.firestore().collection('user').doc(un);
+    let getDoc = userRef.get().then(doc => {
+        if(!doc.exists) {
+            res.send('Account deleted successfully');
+        }
+        else {
+            res.send('Something went wrong');
+        }
+        return null;
+    }).catch(err => {
+        res.send("Error getting document"+err);
+    });
+});
