@@ -5,30 +5,6 @@ const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 admin.initializeApp();
 
-//This function signs up a new user, cheking the correctness of the new values and updating the Database with
-// this new credentials.
-exports.signup = functions.https.onRequest(async (req,res) => {
-    //Grabing the parameters
-    try{
-    const un = req.query.un;
-    const pw = req.query.pw;
-    const n = req.query.n;
-    const lat = req.query.lat;
-    const lon = req.query.lon;
-
-    const snapshot = await admin.database().ref('/users');
-      snapshot.push({username:un,
-              password: pw, name: n,
-            latitud: lat, longitud: lon});
-
-      res.send("1");
-    }
-    catch(error)
-    {
-      res.send("0");
-    }
-});
-
 
 //Login function
 exports.login = functions.https.onRequest(async (req,res) => {
