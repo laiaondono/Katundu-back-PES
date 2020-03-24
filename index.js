@@ -54,7 +54,7 @@ exports.signup = functions.https.onRequest(async (req,res) => {
   let docRef = admin.firestore().collection('user').doc(un);
   let getDoc = docRef.get().then(doc => {
       if (doc.exists) {
-        res.send("The username already exists");
+        res.send("1");
         return null;
         
       } else {
@@ -66,15 +66,14 @@ exports.signup = functions.https.onRequest(async (req,res) => {
           latitud: lat,
           longitud: lon,
         });
-        res.send("New user added");
+        res.send("0");
         return null;
       }
     }).catch(err => {
     console.log('Error getting the user', err);
-    res.send("Something went wrong");
+    res.send("2");
     });
 });
-
 //Delete account function
 exports.deleteaccount = functions.https.onRequest(async (req,res) => {
 	
