@@ -101,3 +101,75 @@ exports.deleteaccount = functions.https.onRequest(async (req,res) => {
         res.send("Error getting document"+err);
     });
 });
+
+exports.modify_personal_credentials = functions.https.onRequest(async (req,res) => {
+	/*
+	
+	**pre:
+		-req.query.un is the username of the user
+		-req.query.pw is the password of the user
+		-req.query.n is the name of the user
+		-req.query.lat is the latitud of the user
+		-req.query.lon is the longitud of the user
+	
+	**post: 
+		user has the new credentials
+	
+	*/
+	
+	//getting the new credentials for the update of the user
+	const un = req.query.un;
+    const pw = req.query.pw;
+    const n = req.query.n;
+    const lat = req.query.lat;
+    const lon = req.query.lon;
+	
+	//updating the credentials of the user
+	let docRef = admin.firestore().collection("user").doc(un);
+	
+	if(check_user_in_database(un)){
+	try{
+		docRef.update({
+			username: un,
+			password: ps,
+			name: n,
+			latitud: lat,
+			longitud: lon
+		});
+		res.send("1");
+	}
+	catch(error){
+		res.send("error trying to update the user");
+	}
+	}
+	else{
+		res.send("No such user in the database");
+	}
+});
+
+exports.check_user_in_database = function(username){
+	/*
+	
+	**pre:
+		-username is the user to check
+	
+	**post: 
+		false if the user is not in the database
+		true if the user is in the database
+		else if there is an error
+		
+	*/
+	res.send("hola_funcio_check");
+	let docRef = admin.firestore().collection("user").doc(username);
+	let getDoc = cityRef.get()
+	.then(doc => {
+		if (!doc.exists) {
+			return false;
+		} else {
+			return true;
+		}
+		})
+	.catch(err => {
+		console.log('Error getting the user', err);
+	});
+}
