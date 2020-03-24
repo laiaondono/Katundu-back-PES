@@ -76,6 +76,7 @@ exports.signup = functions.https.onRequest(async (req,res) => {
     res.send("2");
     });
 });
+
 //Delete account function
 exports.deleteaccount = functions.https.onRequest(async (req,res) => {
 	
@@ -92,14 +93,15 @@ exports.deleteaccount = functions.https.onRequest(async (req,res) => {
     let userRef = admin.firestore().collection('user').doc(un);
     let getDoc = userRef.get().then(doc => {
         if(!doc.exists) {
-            res.send('Account deleted successfully');
+            res.send('0');
         }
         else {
-            res.send('Something went wrong');
+            res.send('1');
         }
         return null;
     }).catch(err => {
-        res.send("Error getting document"+err);
+	console.log('Error getting the document', err);
+        res.send('-1');
     });
 });
 
