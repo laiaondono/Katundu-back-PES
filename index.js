@@ -34,7 +34,8 @@ exports.login = functions.https.onRequest(async (req,res) => {
     return null;
   })
   .catch(err => {
-    res.send(err); //Error getting the document
+    console.log('Error getting the user', err);
+    res.send("-1"); //Error getting the document
   });
 
   
@@ -124,11 +125,11 @@ exports.modify_personal_credentials = functions.https.onRequest(async (req,res) 
   const lat = req.query.lat;
   const lon = req.query.lon;
 	
-	//updating the credentials of the user and checking the user
+	//updating the credentials of the user
   let docRef = admin.firestore().collection("user").doc(un);
   let getDoc = docRef.get().then(doc => {
   if (!doc.exists) {
-    res.send("1"); //The user doesn't exist
+    res.send("The username doesn't exist");
     return null;
       
   } else {
@@ -140,10 +141,10 @@ exports.modify_personal_credentials = functions.https.onRequest(async (req,res) 
 			  latitud: lat,
 			  longitud: lon
 		  });
-		  res.send("0"); //Ok
+		  res.send("1");
 	  }
 	  catch(error){
-		  res.send("4"); //error trying to update the user
+		  res.send("error trying to update the user");
     }
     return null;
   }
