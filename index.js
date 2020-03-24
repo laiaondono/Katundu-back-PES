@@ -16,17 +16,17 @@ exports.login = functions.https.onRequest(async (req,res) => {
   let user = admin.firestore().collection('user').doc(un);
 
   let getDoc = user.get().then(doc => {
-    if (!doc.exists) {	//the user is not registered
-        res.send("No such user!");
+    if (!doc.exists) {	
+        res.send("1"); //The user doesn't exist
 
     } else {
 
 	if(doc.data().password === pw){
-            res.send("Successful login");    
+            res.send("0"); //Successful login
 
         }
         else {
-            res.send("Incorrect password");
+            res.send("2"); //Incorrect password
 
         }
 
@@ -34,11 +34,12 @@ exports.login = functions.https.onRequest(async (req,res) => {
     return null;
   })
   .catch(err => {
-    res.send("Error getting document"+err);
+    res.send(err); //Error getting the document
   });
 
   
 });
+
 
 //This function signs up a new user, cheking the correctness of the new values and updating the Database with
 // this new credentials.
