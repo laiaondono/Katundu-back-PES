@@ -73,7 +73,7 @@ exports.signup = functions.https.onRequest(async (req,res) => {
       }
     }).catch(err => {
     console.log('Error getting the user', err);
-    res.send("2");
+    res.send("-1");
     });
 });
 
