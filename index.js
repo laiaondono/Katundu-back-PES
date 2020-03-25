@@ -79,10 +79,10 @@ exports.signup = functions.https.onRequest(async (req,res) => {
 
 //Delete account function
 exports.deleteaccount = functions.https.onRequest(async (req,res) => {
-	
-	//Pre: an account with the username in the request exists.
-	//Post: all the data related to the user with the username in the request has been deleted.
-	
+
+    //Pre: an account with the username in the request exists.
+    //Post: all the data related to the user with the username in the request has been deleted.
+
     //Grabing the parameters
     const un = req.query.un;
 
@@ -90,17 +90,24 @@ exports.deleteaccount = functions.https.onRequest(async (req,res) => {
     let deleteUser = admin.firestore().collection('user').doc(un).delete();
 
     //Checking if the account was deleted successfully
-    let userRef = admin.firestore().collection('user').doc(un);
-    let getDoc = userRef.get().then(doc => {
-        if(!doc.exists) {
-            res.send("0");
-        }
-        else {
-            res.send("1");
-        }
+    deleteUser.then(r => {
+        console.log('Delete: ', r);
+        let userRef = admin.firestore().collection('user').doc(un);
+        let getDoc = userRef.get().then(doc => {
+            if(!doc.exists) {
+                res.send("0");
+            }
+            else {
+                res.send("1");
+            }
+            return null;
+        }).catch(err => {
+            console.log('Error getting the document', err);
+            res.send("-1");
+        });
         return null;
     }).catch(err => {
-	console.log('Error getting the document', err);
+        console.log('Error deleting', err);
         res.send("-1");
     });
 });
