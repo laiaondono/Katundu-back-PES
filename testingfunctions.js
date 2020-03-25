@@ -71,3 +71,28 @@
 
   });
 
+describe('deleteaccount', () => {
+    let myFunctions;
+
+    before(() => {
+        // Require index.js and save the exports inside a namespace called myFunctions.
+        // This includes our cloud functions, which can now be accessed at myFunctions.makeUppercase
+        // and myFunctions.addMessage
+        myFunctions = require('../index.js');
+    });
+    after(() => {
+        // Do cleanup tasks.
+        test.cleanup();
+    });
+
+    it("Should delete the user's data from the firestore database", () => {
+        const req = { query: {un: 'laia'} };
+        const res = {
+            send: (code) =>{
+                assert.equal(code,0);
+                done();
+            }
+        };
+        myFunctions.deleteaccount(req, res);
+    });
+});
