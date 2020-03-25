@@ -122,7 +122,6 @@ exports.modify_personal_credentials = functions.https.onRequest(async (req,res) 
 	
 	//getting the new credentials for the update of the user
 	const un = req.query.un;
-	const unnew = req.query.unnew;
   const pw = req.query.pw;
   const n = req.query.n;
   const lat = req.query.lat;
@@ -138,7 +137,7 @@ exports.modify_personal_credentials = functions.https.onRequest(async (req,res) 
   } else {
 	  try{
 		  docRef.update({
-			  username: unnew,
+			  username: un,
 			  password: pw,
 			  name: n,
 			  latitud: lat,
