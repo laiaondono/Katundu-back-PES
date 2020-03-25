@@ -25,7 +25,49 @@
             done();
         }
         };
-
       myFunctions.signup(req, res);
     });
   });
+     
+  describe('login', () => {
+    it('Should login an existing user to the application', (done) => {
+      // A fake request object, with req.query.un set to 'paula', and req.query.pw set to '123'
+      const req = { query: {un: 'paula',pw:'123'} };
+      // A fake response object, with a stubbed redirect function which does some assertions
+      const res = {
+        send: (code) =>{
+            assert.equal(code,0);
+            done();
+        }
+        };
+      myFunctions.login(req, res);
+    });
+
+    it('Should detect the user does not exist and should NOT login to the application', (done) => {
+      // A fake request object, with req.query.un set to 'paula', and req.query.pw set to '456'
+      const req = { query: {un: 'paolo',pw:'123'} };
+      // A fake response object, with a stubbed redirect function which does some assertions
+      const res = {
+        send: (code) =>{
+            assert.equal(code,1);
+            done();
+        }
+        };
+      myFunctions.login(req, res);
+    });
+
+    it('Should detect the password is not correct and should NOT login to the application', (done) => {
+      // A fake request object, with req.query.un set to 'paula', and req.query.pw set to '456'
+      const req = { query: {un: 'paula',pw:'456'} };
+      // A fake response object, with a stubbed redirect function which does some assertions
+      const res = {
+        send: (code) =>{
+            assert.equal(code,2);
+            done();
+        }
+        };
+      myFunctions.login(req, res);
+    });
+
+  });
+
