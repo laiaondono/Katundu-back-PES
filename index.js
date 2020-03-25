@@ -93,15 +93,15 @@ exports.deleteaccount = functions.https.onRequest(async (req,res) => {
     let userRef = admin.firestore().collection('user').doc(un);
     let getDoc = userRef.get().then(doc => {
         if(!doc.exists) {
-            res.send('0');
+            res.send("0");
         }
         else {
-            res.send('1');
+            res.send("1");
         }
         return null;
     }).catch(err => {
 	console.log('Error getting the document', err);
-        res.send('-1');
+        res.send("-1");
     });
 });
 
