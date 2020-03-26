@@ -17,7 +17,7 @@
       const req = { query: {un: 'paucanosa',pw:'test', n:'test',lat:'test',lon:'test'} };
       const res = {
         send: (code) =>{
-           if(assert.equal(code,"0"))console.log("Tot ok");
+           if(assert.equal(code,"1"))console.log("Tot ok");
             else 
             {
               console.log("Error, alguna cosa no ha anat bé. Codi : " + code);
