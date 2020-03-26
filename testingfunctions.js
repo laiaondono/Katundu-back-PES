@@ -96,3 +96,26 @@ describe('deleteaccount', () => {
         myFunctions.deleteaccount(req, res);
     });
 });
+
+describe('modify_credentials', () => {
+    it('Should modify a user credentials into the firestore database', (done) => {
+      const req = { query: {un: 'input3',pw:'input3', n:'input3',lat:'4321',lon:'4321'} };
+      const res = {
+        send: (code) =>{
+            assert.equal(code,"0");
+            done();
+        }
+        };
+      myFunctions.modify_personal_credentials(req, res);
+    });
+    it('Should NOT modify a user credentials into the firestore database because the user doesnt exist', (done) => {
+      const req = { query: {un: 'Adrian',pw:'test', n:'test',lat:'101010',lon:'101010'} };
+      const res = {
+        send: (code) =>{
+           assert.equal(code,"1");
+           done();
+        }
+        };
+      myFunctions.modify_personal_credentials(req, res);
+    });
+  });
