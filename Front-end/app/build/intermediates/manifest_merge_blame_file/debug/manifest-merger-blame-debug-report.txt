@@ -1,0 +1,262 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.example.katundu"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+8-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="29" />
+9-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:6:5-67
+11-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:6:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:7:5-79
+12-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:7:22-76
+13    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
+13-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/3838fa066decd5d47eec7bd5d4f2a46d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:24:5-68
+13-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/3838fa066decd5d47eec7bd5d4f2a46d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:24:22-65
+14    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+14-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:26:5-82
+14-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:26:22-79
+15    <uses-permission android:name="com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE" />
+15-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:26:5-110
+15-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:26:22-107
+16
+17    <application
+17-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:9:5-61:19
+18        android:allowBackup="true"
+18-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:10:9-35
+19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+19-->[androidx.core:core:1.1.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/f961a727fd6ff1bec6d760c391cc6822/core-1.1.0/AndroidManifest.xml:24:18-86
+20        android:configChanges="orientation"
+20-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:11:9-44
+21        android:debuggable="true"
+22        android:icon="@drawable/logo_katundu"
+22-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:12:9-46
+23        android:label="@string/app_name"
+23-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:13:9-41
+24        android:roundIcon="@drawable/logo_katundu"
+24-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:14:9-51
+25        android:screenOrientation="portrait"
+25-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:15:9-45
+26        android:supportsRtl="true"
+26-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:16:9-35
+27        android:testOnly="true"
+28        android:theme="@style/AppTheme" >
+28-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:17:9-40
+29        <activity
+29-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:19:9-22:55
+30            android:name="com.example.katundu.ui.logged.AddProduct"
+30-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:20:13-49
+31            android:screenOrientation="portrait" />
+31-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:21:13-49
+32        <activity
+32-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:23:9-26:55
+33            android:name="com.example.katundu.ui.logged.DeleteAccount"
+33-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:24:13-52
+34            android:screenOrientation="portrait" />
+34-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:25:13-49
+35        <activity
+35-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:27:9-30:55
+36            android:name="com.example.katundu.ui.logged.Ajustes"
+36-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:28:13-46
+37            android:screenOrientation="portrait" />
+37-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:29:13-49
+38        <activity
+38-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:31:9-35:68
+39            android:name="com.example.katundu.ui.logged.MenuPrincipal"
+39-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:32:13-52
+40            android:label="@string/title_activity_menu_principal"
+40-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:35:13-66
+41            android:screenOrientation="portrait" />
+41-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:33:13-49
+42        <activity
+42-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:36:9-41:68
+43            android:name="com.example.katundu.ui.login.RegisterActivity"
+43-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:37:13-54
+44            android:label="@string/title_activity_register"
+44-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:40:13-60
+45            android:parentActivityName="com.example.katundu.ui.login.LoginActivity"
+45-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:41:13-65
+46            android:screenOrientation="portrait" />
+46-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:38:13-49
+47        <activity
+47-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:42:9-52:20
+48            android:name="com.example.katundu.ui.login.LoginActivity"
+48-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:43:13-51
+49            android:label="@string/app_name"
+49-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:46:13-45
+50            android:screenOrientation="portrait" >
+50-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:44:13-49
+51            <intent-filter>
+51-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:47:13-51:29
+52                <action android:name="android.intent.action.MAIN" />
+52-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:48:17-69
+52-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:48:25-66
+53
+54                <category android:name="android.intent.category.LAUNCHER" />
+54-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:50:17-77
+54-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:50:27-74
+55            </intent-filter>
+56        </activity>
+57        <activity
+57-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:53:9-56:55
+58            android:name="com.example.katundu.ui.logged.User"
+58-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:54:13-43
+59            android:screenOrientation="portrait" />
+59-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:55:13-49
+60        <activity
+60-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:57:9-60:55
+61            android:name="com.example.katundu.ui.logged.EditarPerfil"
+61-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:58:13-51
+62            android:screenOrientation="portrait" />
+62-->/Users/annallanza/Desktop/Katundu/app/src/main/AndroidManifest.xml:59:13-49
+63        <activity
+63-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:24:9-31:50
+64            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"
+64-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:25:13-85
+65            android:excludeFromRecents="true"
+65-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:26:13-46
+66            android:exported="true"
+66-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:27:13-36
+67            android:launchMode="singleTask"
+67-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:28:13-44
+68            android:permission="com.google.firebase.auth.api.gms.permission.LAUNCH_FEDERATED_SIGN_IN"
+68-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:29:13-102
+69            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+69-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:30:13-72
+70
+71        <service
+71-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:33:9-39:19
+72            android:name="com.google.firebase.components.ComponentDiscoveryService"
+72-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:34:13-84
+73            android:directBootAware="true"
+73-->[com.google.firebase:firebase-common:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:34:13-43
+74            android:exported="false" >
+74-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:35:13-37
+75            <meta-data
+75-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:36:13-38:85
+76                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+76-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:37:17-109
+77                android:value="com.google.firebase.components.ComponentRegistrar" />
+77-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:38:17-82
+78            <meta-data
+78-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/3838fa066decd5d47eec7bd5d4f2a46d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:30:13-32:85
+79                android:name="com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar"
+79-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/3838fa066decd5d47eec7bd5d4f2a46d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:31:17-139
+80                android:value="com.google.firebase.components.ComponentRegistrar" />
+80-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/3838fa066decd5d47eec7bd5d4f2a46d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:32:17-82
+81            <meta-data
+81-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:32:13-34:85
+82                android:name="com.google.firebase.components:com.google.firebase.iid.Registrar"
+82-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:33:17-96
+83                android:value="com.google.firebase.components.ComponentRegistrar" />
+83-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:34:17-82
+84        </service>
+85
+86        <receiver
+86-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:37:9-44:20
+87            android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver"
+87-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:38:13-78
+88            android:exported="true"
+88-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:39:13-36
+89            android:permission="com.google.android.c2dm.permission.SEND" >
+89-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:40:13-73
+90            <intent-filter>
+90-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:41:13-43:29
+91                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+91-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:42:17-81
+91-->[com.google.firebase:firebase-iid:20.0.2] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/0dbca7ef2e7fe6dd6ad20b90edf9f9bc/jetified-firebase-iid-20.0.2/AndroidManifest.xml:42:25-78
+92            </intent-filter>
+93        </receiver>
+94
+95        <activity
+95-->[com.google.android.gms:play-services-base:17.1.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/d515fa0142795af05e3369fe0848cba8/jetified-play-services-base-17.1.0/AndroidManifest.xml:23:9-26:75
+96            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+96-->[com.google.android.gms:play-services-base:17.1.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/d515fa0142795af05e3369fe0848cba8/jetified-play-services-base-17.1.0/AndroidManifest.xml:24:13-79
+97            android:exported="false"
+97-->[com.google.android.gms:play-services-base:17.1.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/d515fa0142795af05e3369fe0848cba8/jetified-play-services-base-17.1.0/AndroidManifest.xml:25:13-37
+98            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+98-->[com.google.android.gms:play-services-base:17.1.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/d515fa0142795af05e3369fe0848cba8/jetified-play-services-base-17.1.0/AndroidManifest.xml:26:13-72
+99
+100        <receiver
+100-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:29:9-33:20
+101            android:name="com.google.android.gms.measurement.AppMeasurementReceiver"
+101-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:30:13-85
+102            android:enabled="true"
+102-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:31:13-35
+103            android:exported="false" >
+103-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:32:13-37
+104        </receiver>
+105        <receiver
+105-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:34:9-42:20
+106            android:name="com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver"
+106-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:35:13-100
+107            android:enabled="true"
+107-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:36:13-35
+108            android:exported="true"
+108-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:37:13-36
+109            android:permission="android.permission.INSTALL_PACKAGES" >
+109-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:38:13-69
+110            <intent-filter>
+110-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:39:13-41:29
+111                <action android:name="com.android.vending.INSTALL_REFERRER" />
+111-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:40:17-79
+111-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:40:25-76
+112            </intent-filter>
+113        </receiver>
+114
+115        <service
+115-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:44:9-47:40
+116            android:name="com.google.android.gms.measurement.AppMeasurementService"
+116-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:45:13-84
+117            android:enabled="true"
+117-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:46:13-35
+118            android:exported="false" />
+118-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:47:13-37
+119        <service
+119-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:48:9-52:72
+120            android:name="com.google.android.gms.measurement.AppMeasurementJobService"
+120-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:49:13-87
+121            android:enabled="true"
+121-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:50:13-35
+122            android:exported="false"
+122-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:51:13-37
+123            android:permission="android.permission.BIND_JOB_SERVICE" />
+123-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:52:13-69
+124
+125        <provider
+125-->[com.google.firebase:firebase-common:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:26:9-30:39
+126            android:name="com.google.firebase.provider.FirebaseInitProvider"
+126-->[com.google.firebase:firebase-common:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:27:13-77
+127            android:authorities="com.example.katundu.firebaseinitprovider"
+127-->[com.google.firebase:firebase-common:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:28:13-72
+128            android:exported="false"
+128-->[com.google.firebase:firebase-common:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:29:13-37
+129            android:initOrder="100" />
+129-->[com.google.firebase:firebase-common:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/1b23a58bb1c539c2a19df1b0920c32b5/jetified-firebase-common-19.3.0/AndroidManifest.xml:30:13-36
+130
+131        <meta-data
+131-->[com.google.android.gms:play-services-basement:17.0.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:23:9-25:69
+132            android:name="com.google.android.gms.version"
+132-->[com.google.android.gms:play-services-basement:17.0.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:24:13-58
+133            android:value="@integer/google_play_services_version" />
+133-->[com.google.android.gms:play-services-basement:17.0.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/AndroidManifest.xml:25:13-66
+134
+135        <provider
+135-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/38d164b88494ebfa4bfd75229517e63b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:25:9-29:43
+136            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+136-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/38d164b88494ebfa4bfd75229517e63b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:26:13-79
+137            android:authorities="com.example.katundu.lifecycle-process"
+137-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/38d164b88494ebfa4bfd75229517e63b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:27:13-69
+138            android:exported="false"
+138-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/38d164b88494ebfa4bfd75229517e63b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:28:13-37
+139            android:multiprocess="true" />
+139-->[androidx.lifecycle:lifecycle-process:2.2.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/38d164b88494ebfa4bfd75229517e63b/jetified-lifecycle-process-2.2.0/AndroidManifest.xml:29:13-40
+140    </application>
+141
+142</manifest>
