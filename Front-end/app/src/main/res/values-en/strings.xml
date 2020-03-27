@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Katundu</string>
+    <!-- Strings related to login -->
+    <string name="prompt_username">Username</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Log in</string>
+    <string name="welcome">"Welcome, "</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="texto_registro"><u>Not registered?</u></string>
+    <string name="unregistered">You are not registered</string>
+    <string name="incorrect_password">Incorrect password</string>
+
+    <!-- Strings related to register -->
+    <string name="title_activity_register">Create your account</string>
+    <string name="subtitle_activity_register">Enter your personal data</string>
+    <string name="name">Name</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password_2">Repeat password</string>
+    <string name="coordinate_latitude">Latitude</string>
+    <string name="coordinate_longitude">Longitude</string>
+    <string name="prompt_address">Address</string>
+    <string name="action_register">Join us</string>
+    <string name="error">An error has occurred</string>
+    <string name="mismatchedpasswords">Passwords don\'t match</string>
+    <string name="existing_user">The username already exists</string>
+
+    <!-- Strings related to Menu Principal-->
+    <string name="title_activity_menu_principal">MenuPrincipal</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Surprise me</string>
+    <string name="title_notifications">Add Product</string>
+    <string name="title_chat">Chat</string>
+    <string name="search">Search</string>
+
+    <!-- Strings related to Users-->
+    <string name="nom_Usuari" translatable="false">Nom Usuari</string>
+    <string name="user_valoracio_text">"Assessment: "</string>
+    <string name="user_valoracio_numero">0</string>
+    <string name="user_perfil_valoracio_max">"/5"</string>
+
+    <!-- Strings related to Settings-->
+    <string name="title_settings">Settings</string>
+
+    <!-- Strings related to Modificar Perfil-->
+    <string name="title_profile">Change Profile</string>
+    <string name="prompt_birthday">Birth date</string>
+    <string name="Save">Save changes</string>
+    <string name="action_logout">Log out</string>
+    <string name="prompt_delete_account">Do you want to delete your account?</string>
+    <string name="account_modified_successfully">Account successfully modified</string>
+
+    <!-- Strings related to Delete Account-->
+    <string name="title_delete_account">Delete Account</string>
+    <string name="text_anti_delete_account">This step is irreversible and will delete your account forever.\n\nThink again before continuing.</string>
+    <string name="action_delete_account">Delete account</string>
+    <string name="account_deleted_successfully">Account successfully deleted</string>
+
+    <!-- Strings related to Add Product-->
+    <string name="title_add_product">Add Product</string>
+    <string name="add_product_name">Name</string>
+    <string name="add_product_category">Category</string>
+    <string name="add_product_value">Value</string>
+    <string name="add_product_type">Type</string>
+    <string name="add_product_type_product">Product</string>
+    <string name="add_product_type_service">Service</string>
+    <string name="add_product_key_words">Key Words</string>
+    <string name="add_product_description">Description</string>
+    <string name="add_product_cancel">Cancel</string>
+    <string name="add_product_save">Upload Product</string>
+
+</resources>

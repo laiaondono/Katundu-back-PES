@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Katundu</string>
+    <!-- Strings related to login -->
+    <string name="prompt_username">Nom d\'usuari</string>
+    <string name="prompt_password">Contrasenya</string>
+    <string name="action_sign_in">Entra o registrat</string>
+    <string name="action_sign_in_short">Entra</string>
+    <string name="welcome">"Benvingut, "</string>
+    <string name="invalid_username">Nom d\'usuari invàlid</string>
+    <string name="invalid_password">La contrasenya ha de ser >5 caracters</string>
+    <string name="login_failed">"Entrada fallida"</string>
+    <string name="texto_registro"><u>No estàs registrat?</u></string>
+    <string name="unregistered">No esta registrat</string>
+    <string name="incorrect_password">Contrasenya incorrecte</string>
+
+    <!-- Strings related to register -->
+    <string name="title_activity_register">Crea el teu compte</string>
+    <string name="subtitle_activity_register">Introdueix les teves dades personals</string>
+    <string name="name">Nom</string>
+    <string name="prompt_email">Correu</string>
+    <string name="prompt_password_2">Repeteix la contrasenya</string>
+    <string name="coordinate_latitude">Latitud</string>
+    <string name="coordinate_longitude">Longitud</string>
+    <string name="prompt_address">Direcció</string>
+    <string name="action_register">Registrat</string>
+    <string name="error">S\'ha produit un error</string>
+    <string name="mismatchedpasswords">No coincideixen les contrasenyes</string>
+    <string name="existing_user">El nom d\'usuario ja existeix</string>
+
+    <!-- Strings related to Menu Principal-->
+    <string name="title_activity_menu_principal">MenuPrincipal</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Sorprèn-me</string>
+    <string name="title_notifications">Afegir Producte</string>
+    <string name="title_chat">Xat</string>
+    <string name="search">Cercar</string>
+
+    <!-- Strings related to Users-->
+    <string name="nom_Usuari" translatable="false">Nom Usuari</string>
+    <string name="user_valoracio_text">"Valoració: "</string>
+    <string name="user_valoracio_numero">0</string>
+    <string name="user_perfil_valoracio_max">"/5"</string>
+
+    <!-- Strings related to Settings-->
+    <string name="title_settings">Ajustos</string>
+
+    <!-- Strings related to Modificar Perfil-->
+    <string name="title_profile">Modificar Perfil</string>
+    <string name="prompt_birthday">Data de naixement</string>
+    <string name="Save">Desar canvis</string>
+    <string name="action_logout">Tancar sessió</string>
+    <string name="prompt_delete_account">Vols donar-te de baixa?</string>
+    <string name="account_modified_successfully">Compte modificat amb èxit</string>
+
+    <!-- Strings related to Delete Account-->
+    <string name="title_delete_account">Esborrar compte</string>
+    <string name="text_anti_delete_account">Aquest pas és irreversible i eliminarà el teu compte per sempre.\n\nPensa-t\'ho una altra vegada abans de continuar.</string>
+    <string name="action_delete_account">Esborrar compte</string>
+    <string name="account_deleted_successfully">Compte eliminada amb èxit</string>
+
+    <!-- Strings related to Add Product-->
+    <string name="title_add_product">Afegir Producto</string>
+    <string name="add_product_name">Nom</string>
+    <string name="add_product_category">Categoria</string>
+    <string name="add_product_value">Valor</string>
+    <string name="add_product_type">Tipus</string>
+    <string name="add_product_type_product">Producte</string>
+    <string name="add_product_type_service">Servei</string>
+    <string name="add_product_key_words">Paraules Clau</string>
+    <string name="add_product_description">Descripció</string>
+    <string name="add_product_cancel">Cancel·lar</string>
+    <string name="add_product_save">Pujar Producte</string>
+
+</resources>
