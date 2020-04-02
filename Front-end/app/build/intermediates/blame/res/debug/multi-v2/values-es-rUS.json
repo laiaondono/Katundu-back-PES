@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-es-rUS/values-es-rUS.xml",
+            "outputFile": "/Users/annallanza/Documents/Uni/3r/Q2/PES/Katundu/Front-end/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-es-rUS/values-es-rUS.xml",
             "map": [
                 {
                     "source": "/Users/annallanza/.gradle/caches/transforms-2/files-2.1/d515fa0142795af05e3369fe0848cba8/jetified-play-services-base-17.1.0/res/values-es-rUS/values.xml",
