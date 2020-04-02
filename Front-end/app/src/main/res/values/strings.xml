@@ -1,0 +1,115 @@
+<resources>
+    <string name="app_name">Katundu</string>
+    <string name="descripcio" translatable="false">descripcio</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_username">Nombre de usuario</string>
+    <string name="prompt_password">Contraseña</string>
+    <string name="action_sign_in">Entra o regístrate</string>
+    <string name="action_sign_in_short">Entra</string>
+    <string name="welcome">"Bienvenido, "</string>
+    <string name="invalid_username">Nombre de usuario inválido</string>
+    <string name="invalid_password">La contraeña debe ser >=8 caracteres</string> <!-- Login View Model-->
+    <string name="login_failed">"Entrada fallida"</string>
+    <string name="texto_registro"><u>¿No estás registrado?</u></string>
+    <string name="unregistered">No esta registrado</string>
+    <string name="incorrect_password">Contraseña incorrecta</string>
+
+    <!-- Strings related to register -->
+    <string name="title_activity_register">Crea tu cuenta</string>
+    <string name="subtitle_activity_register">Introduce tus datos personales</string>
+    <string name="name">Nombre</string>
+    <string name="prompt_email">Correo</string>
+    <string name="prompt_password_2">Repite la contraseña</string>
+    <string name="coordinate_latitude">Latitud</string>
+    <string name="coordinate_longitude">Longitud</string>
+    <string name="prompt_address">Dirección</string>
+    <string name="action_register">Regístrate</string>
+    <string name="error">Se ha producido un error</string>
+    <string name="mismatchedpasswords">No coinciden las contraseñas</string>
+    <string name="existing_user">El nombre de usuario ya existe</string>
+
+    <!-- Strings related to Menu Principal-->
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Sorpréndeme</string>
+    <string name="title_notifications">Añadir Producto</string>
+    <string name="title_chat">Chat</string>
+    <string name="search">Buscar</string>
+    <string name="title_activity_menu_principal">MenuPrincipal</string>
+
+    <!-- Strings related to User-->
+    <string name="nom_Usuari" translatable="false">Nom Usuari</string>
+    <string name="user_valoracio_text">"Valoración: "</string>
+    <string name="user_valoracio_numero">0</string>
+    <string name="user_perfil_valoracio_max">"/5"</string>
+
+    <!-- Strings related to Settings-->
+    <string name="title_settings">Ajustes</string>
+
+    <!-- Strings related to Modificar Perfil-->
+    <string name="title_profile">Modificar Perfil</string>
+    <string name="prompt_birthday">Fecha de nacimiento</string>
+    <string name="Save">Guardar cambios</string>
+    <string name="action_logout">Cerrar sessión</string>
+    <string name="prompt_delete_account"><u>¿Quieres darte de baja?</u></string>
+    <string name="account_modified_successfully">Cuenta modificada con éxito</string>
+
+    <!-- Strings related to Editar Idioma-->
+    <string name="title_idioma">Cambiar Idioma</string>
+    <string name="editar_idioma_español">Español</string>
+    <string name="editar_idioma_catalan">Català</string>
+    <string name="editar_idioma_ingles">English</string>
+
+    <!-- Strings related to Delete Account-->
+    <string name="title_delete_account">Eliminar cuenta</string>
+    <string name="text_anti_delete_account">Este paso es irreversible y eliminará tu cuenta para siempre.\n\nPiénsatelo otra vez antes de continuar.</string>
+    <string name="action_delete_account">Eliminar cuenta</string>
+    <string name="account_deleted_successfully">Cuenta eliminada con éxito</string>
+
+    <!-- Strings related to Add-->
+    <string name="add_product">Subir Oferta</string>
+    <string name="add_wish">Añadir Deseo</string>
+
+    <!-- Strings related to Add Product-->
+    <string name="title_add_product">Añadir Nueva Oferta</string>
+    <string name="add_product_add_foto">Añadir foto</string>
+    <string name="add_product_name">Nombre</string>
+    <string name="add_product_categories">Categoría</string>
+    <string name="add_product_category_technology">Tecnología</string>
+    <string name="add_product_category_home">Hogar</string>
+    <string name="add_product_category_beauty">Belleza</string>
+    <string name="add_product_category_sports">Deportes</string>
+    <string name="add_product_category_fashion">Moda</string>
+    <string name="add_product_category_leisure">Ocio</string>
+    <string name="add_product_category_transport">Transporte</string>
+    <string name="add_product_value">Valor</string>
+    <string name="add_product_type">Tipo</string>
+    <string name="add_product_type_product">Producto</string>
+    <string name="add_product_type_service">Servicio</string>
+    <string name="add_product_key_words">Palabras Clave</string>
+    <string name="add_product_description">Descripción</string>
+    <string name="add_product_cancel">Cancelar</string>
+    <string name="add_product_save">Subir Oferta</string>
+    <string name="add_product_muchas_fotos">Límite de fotos alcanzado</string>
+    <string name="add_product_no_hay_fotos">Debes añadir una foto</string>
+    <string name="add_product_no_hay_nombre">Debes añadir un nombre</string>
+    <string name="add_product_no_hay_valor">Debes añadir un valor</string>
+    <string name="add_product_no_hay_palabras_clave">Debes añadir una palabra clave</string>
+    <string name="add_product_no_hay_descripcion">Debes añadir una descripción</string>
+
+    <!-- Strings related to Add Wish-->
+    <string name="title_add_wish">Añadir Nuevo Deseo</string>
+    <string name="add_new_wish_explication">
+        Un deseo es aquello que quieres conseguir en un intercambio con otro usuario, independientemente de su valor.
+    </string>
+    <string name="add_new_wish">Añadir Deseo</string>
+
+    <!-- Strings related to PreviewFoto-->
+    <string name="preview_foto_delete">Borrar foto</string>
+    <string name="preview_foto_cancelar">Cancelar</string>
+
+    <!-- Strings related to EditWish-->
+    <string name="edit_wish_title">Modificar datos del deseo</string>
+    <string name="edit_wish_ok">Modificar deseo</string>
+
+</resources>

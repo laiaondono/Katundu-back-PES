@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ffaf58</color>
+    <color name="colorPrimaryDark">#D3E29051</color> <!-- D3E29051 (color Paula) -->
+    <color name="colorAccent">#FFFFFF</color>
+    <color name="colorAccentTransparent">#80FFFFFF</color>
+    <color name="colorLetraKatundu">#5C5B5B</color>
+    <color name="colorBarraNotificaciones">#3D3D3D</color>
+    <color name="colorRojoLogout">#BFFA0000</color>
+</resources>
