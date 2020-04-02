@@ -6,22 +6,22 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml
+8-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml
+9-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml
 10
 11    <uses-permission android:name="android.permission.CAMERA" />
-11-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:6:5-65
-11-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:6:22-62
+11-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:6:5-65
+11-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:6:22-62
 12    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-12-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:7:5-81
-12-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:7:22-78
+12-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:7:5-81
+12-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:7:22-78
 13    <uses-permission android:name="android.permission.INTERNET" />
-13-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:8:5-67
-13-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:8:22-64
+13-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:8:5-67
+13-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:8:22-64
 14    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-14-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:9:5-79
-14-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:9:22-76
+14-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:9:5-79
+14-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:9:22-76
 15    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
 15-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/3838fa066decd5d47eec7bd5d4f2a46d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:24:5-68
 15-->[com.google.android.gms:play-services-measurement-api:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/3838fa066decd5d47eec7bd5d4f2a46d/jetified-play-services-measurement-api-17.2.3/AndroidManifest.xml:24:22-65
@@ -33,127 +33,127 @@
 17-->[com.google.android.gms:play-services-measurement:17.2.3] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/493b977d77656374211b333eaefc270a/jetified-play-services-measurement-17.2.3/AndroidManifest.xml:26:22-107
 18
 19    <application
-19-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:11:5-84:19
+19-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:11:5-84:19
 20        android:allowBackup="true"
-20-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:12:9-35
+20-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:12:9-35
 21        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 21-->[androidx.core:core:1.1.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/f961a727fd6ff1bec6d760c391cc6822/core-1.1.0/AndroidManifest.xml:24:18-86
 22        android:configChanges="orientation"
-22-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:13:9-44
+22-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:13:9-44
 23        android:debuggable="true"
 24        android:icon="@drawable/logo_katundu"
-24-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:14:9-46
+24-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:14:9-46
 25        android:label="@string/app_name"
-25-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:15:9-41
+25-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:15:9-41
 26        android:roundIcon="@drawable/logo_katundu"
-26-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:16:9-51
+26-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:16:9-51
 27        android:screenOrientation="portrait"
-27-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:17:9-45
+27-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:17:9-45
 28        android:supportsRtl="true"
-28-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:18:9-35
+28-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:18:9-35
 29        android:testOnly="true"
 30        android:theme="@style/AppTheme" >
-30-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:19:9-40
+30-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:19:9-40
 31        <activity android:name="com.example.katundu.ui.logged.EditarIdioma" />
-31-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:21:9-69
-31-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:21:19-57
+31-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:21:9-69
+31-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:21:19-57
 32        <activity
-32-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:22:9-25:56
+32-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:22:9-25:56
 33            android:name="com.example.katundu.ui.logged.EditWish"
-33-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:23:13-47
+33-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:23:13-47
 34            android:screenOrientation="portrait" />
-34-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:24:13-49
+34-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:24:13-49
 35        <activity
-35-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:26:9-29:56
+35-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:26:9-29:56
 36            android:name="com.example.katundu.ui.logged.ListWish"
-36-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:27:13-47
+36-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:27:13-47
 37            android:screenOrientation="portrait" />
-37-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:28:13-49
+37-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:28:13-49
 38        <activity
-38-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:30:9-33:56
+38-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:30:9-33:56
 39            android:name="com.example.katundu.ui.logged.AddWish"
-39-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:31:13-46
+39-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:31:13-46
 40            android:screenOrientation="portrait" />
-40-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:32:13-49
+40-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:32:13-49
 41        <activity
-41-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:34:9-37:56
+41-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:34:9-37:56
 42            android:name="com.example.katundu.ui.logged.Add"
-42-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:35:13-42
+42-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:35:13-42
 43            android:screenOrientation="portrait" />
-43-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:36:13-49
+43-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:36:13-49
 44        <activity
-44-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:38:9-41:56
+44-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:38:9-41:56
 45            android:name="com.example.katundu.ui.logged.PreviewFoto"
-45-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:39:13-50
+45-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:39:13-50
 46            android:screenOrientation="portrait" />
-46-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:40:13-49
+46-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:40:13-49
 47        <activity
-47-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:42:9-45:56
+47-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:42:9-45:56
 48            android:name="com.example.katundu.ui.logged.AddProduct"
-48-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:43:13-49
+48-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:43:13-49
 49            android:screenOrientation="portrait" />
-49-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:44:13-49
+49-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:44:13-49
 50        <activity
-50-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:46:9-49:56
+50-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:46:9-49:56
 51            android:name="com.example.katundu.ui.logged.DeleteAccount"
-51-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:47:13-52
+51-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:47:13-52
 52            android:screenOrientation="portrait" />
-52-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:48:13-49
+52-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:48:13-49
 53        <activity
-53-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:50:9-53:56
+53-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:50:9-53:56
 54            android:name="com.example.katundu.ui.logged.Ajustes"
-54-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:51:13-46
+54-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:51:13-46
 55            android:screenOrientation="portrait" />
-55-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:52:13-49
+55-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:52:13-49
 56        <activity
-56-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:54:9-58:56
+56-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:54:9-58:56
 57            android:name="com.example.katundu.ui.logged.MenuPrincipal"
-57-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:55:13-52
+57-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:55:13-52
 58            android:label="@string/title_activity_menu_principal"
-58-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:56:13-66
+58-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:56:13-66
 59            android:screenOrientation="portrait" />
-59-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:57:13-49
+59-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:57:13-49
 60        <activity
-60-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:59:9-64:56
+60-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:59:9-64:56
 61            android:name="com.example.katundu.ui.login.RegisterActivity"
-61-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:60:13-54
+61-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:60:13-54
 62            android:label="@string/title_activity_register"
-62-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:61:13-60
+62-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:61:13-60
 63            android:parentActivityName="com.example.katundu.ui.login.LoginActivity"
-63-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:62:13-65
+63-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:62:13-65
 64            android:screenOrientation="portrait" />
-64-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:63:13-49
+64-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:63:13-49
 65        <activity
-65-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:65:9-75:20
+65-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:65:9-75:20
 66            android:name="com.example.katundu.ui.login.LoginActivity"
-66-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:66:13-51
+66-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:66:13-51
 67            android:label="@string/app_name"
-67-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:67:13-45
+67-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:67:13-45
 68            android:screenOrientation="portrait" >
-68-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:68:13-49
+68-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:68:13-49
 69            <intent-filter>
-69-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:70:13-74:29
+69-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:70:13-74:29
 70                <action android:name="android.intent.action.MAIN" />
-70-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:71:17-69
-70-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:71:25-66
+70-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:71:17-69
+70-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:71:25-66
 71
 72                <category android:name="android.intent.category.LAUNCHER" />
-72-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:73:17-77
-72-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:73:27-74
+72-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:73:17-77
+72-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:73:27-74
 73            </intent-filter>
 74        </activity>
 75        <activity
-75-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:76:9-79:56
+75-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:76:9-79:56
 76            android:name="com.example.katundu.ui.logged.User"
-76-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:77:13-43
+76-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:77:13-43
 77            android:screenOrientation="portrait" />
-77-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:78:13-49
+77-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:78:13-49
 78        <activity
-78-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:80:9-83:56
+78-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:80:9-83:56
 79            android:name="com.example.katundu.ui.logged.EditarPerfil"
-79-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:81:13-51
+79-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:81:13-51
 80            android:screenOrientation="portrait" />
-80-->/Users/annallanza/Desktop/Front-end/app/src/main/AndroidManifest.xml:82:13-49
+80-->/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/src/main/AndroidManifest.xml:82:13-49
 81        <activity
 81-->[com.google.firebase:firebase-auth:19.3.0] /Users/annallanza/.gradle/caches/transforms-2/files-2.1/dfe7b3659c61d92bbc3815d5264c7c0d/jetified-firebase-auth-19.3.0/AndroidManifest.xml:24:9-31:50
 82            android:name="com.google.firebase.auth.internal.FederatedSignInActivity"

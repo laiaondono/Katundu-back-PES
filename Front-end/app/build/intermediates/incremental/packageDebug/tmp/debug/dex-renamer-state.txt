@@ -1,7 +1,7 @@
-#Thu Apr 02 20:18:35 CEST 2020
-base.0=/Users/annallanza/Desktop/Front-end/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
+#Thu Apr 02 12:45:06 CEST 2020
+base.0=/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/build/intermediates/dex/debug/mergeExtDexDebug/out/classes.dex
 path.1=classes.dex
 renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
-base.1=/Users/annallanza/Desktop/Front-end/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
+base.1=/Users/annallanza/Documents/Uni/3r/Q2/PES/Projecte/Katundu/app/build/intermediates/dex/debug/mergeProjectDexDebug/out/classes.dex
