@@ -810,16 +810,36 @@
     <string name="action_register">Regístrate</string>
     <string name="action_sign_in">Entra o regístrate</string>
     <string name="action_sign_in_short">Entra</string>
+    <string name="add_new_wish">Añadir Deseo</string>
+    <string name="add_new_wish_explication">
+        Un deseo es aquello que quieres conseguir en un intercambio con otro usuario, independientemente de su valor.
+    </string>
+    <string name="add_product">Subir Oferta</string>
+    <string name="add_product_add_foto">Añadir foto</string>
     <string name="add_product_cancel">Cancelar</string>
-    <string name="add_product_category">Categoría</string>
+    <string name="add_product_categories">Categoría</string>
+    <string name="add_product_category_beauty">Belleza</string>
+    <string name="add_product_category_fashion">Moda</string>
+    <string name="add_product_category_home">Hogar</string>
+    <string name="add_product_category_leisure">Ocio</string>
+    <string name="add_product_category_sports">Deportes</string>
+    <string name="add_product_category_technology">Tecnología</string>
+    <string name="add_product_category_transport">Transporte</string>
     <string name="add_product_description">Descripción</string>
     <string name="add_product_key_words">Palabras Clave</string>
+    <string name="add_product_muchas_fotos">Límite de fotos alcanzado</string>
     <string name="add_product_name">Nombre</string>
-    <string name="add_product_save">Subir Producto</string>
+    <string name="add_product_no_hay_descripcion">Debes añadir una descripción</string>
+    <string name="add_product_no_hay_fotos">Debes añadir una foto</string>
+    <string name="add_product_no_hay_nombre">Debes añadir un nombre</string>
+    <string name="add_product_no_hay_palabras_clave">Debes añadir una palabra clave</string>
+    <string name="add_product_no_hay_valor">Debes añadir un valor</string>
+    <string name="add_product_save">Subir Oferta</string>
     <string name="add_product_type">Tipo</string>
     <string name="add_product_type_product">Producto</string>
     <string name="add_product_type_service">Servicio</string>
     <string name="add_product_value">Valor</string>
+    <string name="add_wish">Añadir Deseo</string>
     <string name="app_name">Katundu</string>
     <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
     <string name="bottom_sheet_behavior" translatable="false">com.google.android.material.bottomsheet.BottomSheetBehavior</string>
@@ -850,6 +870,11 @@
     <string name="coordinate_longitude">Longitud</string>
     <string name="default_web_client_id" translatable="false">562480271845-ofu9cf7vtb3r8d2kdqrh21crflrpqco5.apps.googleusercontent.com</string>
     <string name="descripcio" translatable="false">descripcio</string>
+    <string name="edit_wish_ok">Modificar deseo</string>
+    <string name="edit_wish_title">Modificar datos del deseo</string>
+    <string name="editar_idioma_catalan">Català</string>
+    <string name="editar_idioma_español">Español</string>
+    <string name="editar_idioma_ingles">English</string>
     <string name="error">Se ha producido un error</string>
     <string name="error_icon_content_description">Error</string>
     <string name="existing_user">El nombre de usuario ya existe</string>
@@ -910,6 +935,8 @@
     <string name="path_password_eye_mask_strike_through" translatable="false">M2,4.27 L19.73,22 L22.27,19.46 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_eye_mask_visible" translatable="false">M2,4.27 L2,4.27 L4.54,1.73 L4.54,1.73 L4.54,1 L23,1 L23,23 L1,23 L1,4.27 Z</string>
     <string name="path_password_strike_through" translatable="false">M3.27,4.27 L19.74,20.74</string>
+    <string name="preview_foto_cancelar">Cancelar</string>
+    <string name="preview_foto_delete">Borrar foto</string>
     <string name="project_id" translatable="false">test-8ea8f</string>
     <string name="prompt_address">Dirección</string>
     <string name="prompt_birthday">Fecha de nacimiento</string>
@@ -926,11 +953,13 @@
     <string name="texto_registro"><u>¿No estás registrado?</u></string>
     <string name="title_activity_menu_principal">MenuPrincipal</string>
     <string name="title_activity_register">Crea tu cuenta</string>
-    <string name="title_add_product">Añadir Producto</string>
+    <string name="title_add_product">Añadir Nueva Oferta</string>
+    <string name="title_add_wish">Añadir Nuevo Deseo</string>
     <string name="title_chat">Chat</string>
     <string name="title_dashboard">Sorpréndeme</string>
     <string name="title_delete_account">Eliminar cuenta</string>
     <string name="title_home">Home</string>
+    <string name="title_idioma">Cambiar Idioma</string>
     <string name="title_notifications">Añadir Producto</string>
     <string name="title_profile">Modificar Perfil</string>
     <string name="title_settings">Ajustes</string>

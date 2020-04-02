@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/annallanza/Desktop/Katundu/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ta/values-ta.xml",
+            "outputFile": "/Users/annallanza/Desktop/Front-end/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ta/values-ta.xml",
             "map": [
                 {
                     "source": "/Users/annallanza/.gradle/caches/transforms-2/files-2.1/f720b24cc490c109d50c0a0a1e6bf186/jetified-play-services-basement-17.0.0/res/values-ta/values.xml",

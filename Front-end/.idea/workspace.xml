@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AndroidLayouts">
-    <shared>
-      <config />
-    </shared>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8dffebd1-14b5-4c12-85ca-4f78e16d8e29" name="Default Changelist" comment="" />
+    <list default="true" id="41ad9a6f-479b-4604-a74e-dd3a757b9cdc" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,14 +21,10 @@
       </state>
     </system>
   </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="ccee0c3c-cb64-4c71-98d0-69442433e6b9" />
-  </component>
-  <component name="ProjectId" id="1ZjNUS8oVzqs1elU0PnGALufLxV" />
+  <component name="ProjectId" id="1ZzopjCd7Skk0kNSlnpjT7q4tGB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -112,11 +103,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8dffebd1-14b5-4c12-85ca-4f78e16d8e29" name="Default Changelist" comment="" />
-      <created>1585348558707</created>
+      <changelist id="41ad9a6f-479b-4604-a74e-dd3a757b9cdc" name="Default Changelist" comment="" />
+      <created>1585851468271</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1585348558707</updated>
+      <updated>1585851468271</updated>
     </task>
     <servers />
   </component>

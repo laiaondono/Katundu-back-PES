@@ -8,6 +8,8 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="29" />
 
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- Required by older versions of Google Play services to create IID tokens -->
@@ -26,6 +28,22 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.katundu.ui.logged.EditarIdioma" />
+        <activity
+            android:name="com.example.katundu.ui.logged.EditWish"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.katundu.ui.logged.ListWish"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.katundu.ui.logged.AddWish"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.katundu.ui.logged.Add"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.example.katundu.ui.logged.PreviewFoto"
+            android:screenOrientation="portrait" />
         <activity
             android:name="com.example.katundu.ui.logged.AddProduct"
             android:screenOrientation="portrait" />

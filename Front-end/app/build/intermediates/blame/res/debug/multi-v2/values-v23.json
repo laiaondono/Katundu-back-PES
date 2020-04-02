@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/annallanza/Desktop/Katundu/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
+            "outputFile": "/Users/annallanza/Desktop/Front-end/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml",
             "map": [
                 {
                     "source": "/Users/annallanza/.gradle/caches/transforms-2/files-2.1/9e025505c94c04007a8190f74982d1e9/cardview-1.0.0/res/values-v23/values-v23.xml",
