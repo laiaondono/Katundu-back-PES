@@ -162,3 +162,39 @@ exports.modify_personal_credentials = functions.https.onRequest(async (req,res) 
     res.send("-1"); //Error getting the document
   });
 });
+
+//ADD WISH function
+//Afegeix un nou desig a la llista de desitjos i al array de wishes de l'usuari
+exports.addwish = functions.https.onRequest(async (req,res) => {
+
+	const user = req.query.user;
+	const name = req.query.name;
+	const category = req.query.category;
+	const type = req.query.type;
+	const keywords = req.query.keywords;
+	const value = req.query.value;
+	const description = req.query.description;
+
+	let addDoc = admin.firestore().collection('wishes').add({
+	  user: user,
+	  name: name,
+	  category: category,
+	  type: type,
+	  keywords: keywords,
+	  value: value,
+	  description: description
+
+	}).then(ref => {
+	  console.log('Added wish with ID: ', ref.id);
+
+	//AFEGIR ID WISH A LA LLISTA DE WISHES DE L'USUARI
+	//Si no té l'array el crea
+	admin.firestore().collection('user').doc(user).update({
+	  wishes: admin.firestore.FieldValue.arrayUnion(ref.id)
+	});
+
+	res.send(ref.id);
+	return null;
+
+	});
+});
