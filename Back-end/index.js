@@ -164,7 +164,7 @@ exports.modify_personal_credentials = functions.https.onRequest(async (req,res) 
 });
 
 //ADD WISH function
-//Afegeix un nou desig a la llista de desitjos i al array de wishes de l'usuari
+//Afegeix un nou desig a la llista de desitjos i al array de desitjos de l'usuari
 exports.addwish = functions.https.onRequest(async (req,res) => {
 
 	const user = req.query.user;
@@ -172,10 +172,10 @@ exports.addwish = functions.https.onRequest(async (req,res) => {
 	const category = req.query.category;
 	const type = req.query.type;
 	const keywords = req.query.keywords;
-	const value = req.query.value;
+	const value = parseFloat(req.query.value);
 	const description = req.query.description;
 
-	let addDoc = admin.firestore().collection('wishes').add({
+	let addDoc = admin.firestore().collection('wish').add({
 	  user: user,
 	  name: name,
 	  category: category,
@@ -190,13 +190,16 @@ exports.addwish = functions.https.onRequest(async (req,res) => {
 	//AFEGIR ID WISH A LA LLISTA DE WISHES DE L'USUARI
 	//Si no té l'array el crea
 	admin.firestore().collection('user').doc(user).update({
-	  wishes: admin.firestore.FieldValue.arrayUnion(ref.id)
-	});
-
+	  wish: admin.firestore.FieldValue.arrayUnion(ref.id)
+	})
 	res.send(ref.id);
 	return null;
 
+	}).catch(err =>{
+		console.log('Error adding a new wish', err);
+		res.send("-1");
 	});
+
 });
 
 exports.deleteoffer = functions.https.onRequest(async (req, res) => {
