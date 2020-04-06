@@ -198,3 +198,78 @@ exports.addwish = functions.https.onRequest(async (req,res) => {
 
 	});
 });
+
+exports.deleteoffer = functions.https.onRequest(async (req, res) => {
+
+    //Pre: the offer exists
+    //Post: the offer is no longer in the database
+
+    //Grabing the parameters
+    const id = req.query.id;
+
+    //Deleting the offer
+    let deleteOffer = admin.firestore().collection('offer').doc(id).delete();
+
+    //Checking if the offer was deleted successfully
+    deleteOffer.then(r => {
+        console.log('Delete: ', r);
+        let offerRef = admin.firestore().collection('offer').doc(id);
+        // eslint-disable-next-line promise/no-nesting
+        let getDoc = offerRef.get().then(doc => {
+            if(!doc.exists) {
+                res.send("0");
+            }
+            else {
+                res.send("1");
+            }
+            // eslint-disable-next-line promise/no-nesting
+            return null
+            .catch(err => {
+                console.log('Error getting the document', err);
+                res.send("-1");
+            })
+        });
+        return null;
+    }).catch(err => {
+        console.log('Error deleting', err);
+        res.send("-1");
+    });
+});
+
+exports.deletewish = functions.https.onRequest(async (req, res) => {
+
+    //Pre: the wish exists
+    //Post: the wish is no longer in the database
+
+    //Grabing the parameters
+    const id = req.query.id;
+
+    //Deleting the wish
+    let deleteWish = admin.firestore().collection('wish').doc(id).delete();
+
+    //Checking if the wish was deleted successfully
+    deleteWish.then(r => {
+        console.log('Delete: ', r);
+        let wishRef = admin.firestore().collection('wish').doc(id);
+        // eslint-disable-next-line promise/no-nesting
+        let getDoc = wishRef.get().then(doc => {
+            if(!doc.exists) {
+                res.send("0");
+            }
+            else {
+                res.send("1");
+            }
+            // eslint-disable-next-line promise/no-nesting
+            return null
+            .catch(err => {
+                console.log('Error getting the document', err);
+                res.send("-1");
+            })
+        });
+        return null;
+    }).catch(err => {
+        console.log('Error deleting', err);
+        res.send("-1");
+    });
+});
+
