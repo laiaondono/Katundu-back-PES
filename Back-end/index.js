@@ -309,3 +309,99 @@ exports.addoffer = functions.https.onRequest(async (req, res) => {
     res.send(0);
 });
 
+exports.modifywish = functions.https.onRequest(async (req, res) => {
+
+  //Pre: the wish and the user exists
+  //Post: the wish has the new information
+
+  //id of the wish to change information
+  const id = req.query.id;
+
+  //new information
+	const n = req.query.name;
+	const cat = req.query.category;
+	const ty = req.query.type;
+	const kwords = req.query.keywords;
+	const val = req.query.value;
+  const descrpt = req.query.description;
+
+  if(n === null || val === null){
+    res.send("3")//this values cannot be empty
+    return null
+  }
+  let docRef = admin.firestore().collection("wish").doc(id);
+  let getDoc = docRef.get().then(doc => {
+    if (!doc.exists) {
+      res.send("1"); //The user doesn't exist
+      return null;
+    } else {
+      try{
+        docRef.update({
+          category: cat,
+          description: descrpt,
+          keywords: kwords,
+          name: n,
+          type: ty,
+          value: val
+        });
+        res.send("0"); //Ok
+      }
+      catch(error){
+        res.send("2"); //error trying to update the user
+      }
+      return null;
+    }
+    }).catch(err => {
+      res.send("Error getting document"+err);
+      res.send("-1"); //Error getting the document
+    });
+});
+
+exports.modifyoffer = functions.https.onRequest(async (req, res) => {
+
+  //Pre: the offer and the user exists
+  //Post: the offer has the new information
+
+  //id of the offer to change information
+  const id = req.query.id;
+
+  //new information
+	const n = req.query.name;
+	const cat = req.query.category;
+	const ty = req.query.type;
+	const kwords = req.query.keywords;
+	const val = req.query.value;
+  const descrpt = req.query.description;
+
+  if(n === null || val === null){
+    res.send("3")//name and value cannot be empty
+    return null
+  }
+  let docRef = admin.firestore().collection("offer").doc(id);
+  let getDoc = docRef.get().then(doc => {
+    if (!doc.exists) {
+      res.send("1"); //The user doesn't exist
+      return null;
+    } else {
+      try{
+        docRef.update({
+          name: n,
+          category: cat,
+          type: ty,
+          keywords: kwords,
+          value: val,
+          description: descrpt
+        });
+        res.send("0"); //Ok
+      }
+      catch(error){
+        res.send("2"); //error trying to update the user
+      }
+      return null;
+    }
+    }).catch(err => {
+      res.send("Error getting document"+err);
+      res.send("-1"); //Error getting the document
+    });
+});
+
