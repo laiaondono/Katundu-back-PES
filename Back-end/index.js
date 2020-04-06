@@ -276,3 +276,36 @@ exports.deletewish = functions.https.onRequest(async (req, res) => {
     });
 });
 
+exports.addoffer = functions.https.onRequest(async (req, res) => {
+
+    const user = req.query.user;
+    const name = req.query.name;
+    const category = req.query.category;
+    const type = req.query.type;
+    const keywords = req.query.keywords;
+    const value = parseFloat(req.query.value);
+    const description = req.query.description;
+
+    admin.firestore().collection('offer').add({
+        user: user,
+        name: name,
+        category: category,
+        type: type,
+        keywords: keywords,
+        value: value,
+        description: description
+
+    }).then(ref => {
+        console.log('New offer: ', ref.id);
+
+        admin.firestore().collection('user').doc(user).update({
+            offers: admin.firestore.FieldValue.arrayUnion(ref.id)
+        });
+        return null;
+    }).catch(err => {
+        console.log('Error when adding an offer', err);
+        res.send(-1);
+    });
+    res.send(0);
+});
+
