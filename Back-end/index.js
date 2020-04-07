@@ -173,7 +173,6 @@ exports.addwish = functions.https.onRequest(async (req,res) => {
 	const type = req.query.type;
 	const keywords = req.query.keywords;
 	const value = parseFloat(req.query.value);
-	const description = req.query.description;
 
 	let addDoc = admin.firestore().collection('wish').add({
 	  user: user,
@@ -182,7 +181,6 @@ exports.addwish = functions.https.onRequest(async (req,res) => {
 	  type: type,
 	  keywords: keywords,
 	  value: value,
-	  description: description
 
 	}).then(ref => {
 	  console.log('Added wish with ID: ', ref.id);
@@ -405,3 +403,31 @@ exports.modifyoffer = functions.https.onRequest(async (req, res) => {
     });
 });
 
+//Returns the user information
+exports.infouser = functions.https.onRequest(async (req,res) => {
+
+	const username = req.query.username;
+	
+	let user = admin.firestore().collection('user').doc(username);
+
+
+	let getDoc = user.get().then(doc => {
+	  
+	let data = {
+	  name: doc.data().name,
+	  password: doc.data().password,
+	  latitud: doc.data().latitud,
+	  longitud: doc.data().longitud,
+	  wish: doc.data().wish,
+	  offer: doc.data().offer
+
+	}
+	  res.send(data);
+	  return null;
+	
+	}).catch(err =>{
+		console.log('Error getting the user info', err);
+		res.send("-1");
+	});
+
+});
