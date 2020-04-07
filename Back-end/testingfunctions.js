@@ -119,3 +119,20 @@ describe('modify_credentials', () => {
       myFunctions.modify_personal_credentials(req, res);
     });
   });
+
+describe('addwish', () => {
+    it('Should add a wish to the wish collection and a wish to the users wish list', (done) => {
+      // A fake request object, with req.query.un set to 'paula', and req.query.pw set to '123'
+      const req = { query: {user:'paula',name:'armari',category:'casa',type:'be',keywords:'nuevo',keywords:'azul',value:'100'} };
+
+      // A fake response object, with a stubbed redirect function which does some assertions
+      const res = {
+        send: (code) =>{
+            assert.equal(code,0);
+            done();
+        }
+        };
+      myFunctions.addwish(req, res);
+    });
+
+  });
