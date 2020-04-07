@@ -301,12 +301,12 @@ exports.addoffer = functions.https.onRequest(async (req, res) => {
         admin.firestore().collection('user').doc(user).update({
             offers: admin.firestore.FieldValue.arrayUnion(ref.id)
         });
+        res.send(ref.id);
         return null;
     }).catch(err => {
         console.log('Error when adding an offer', err);
         res.send(-1);
     });
-    res.send(0);
 });
 
 exports.modifywish = functions.https.onRequest(async (req, res) => {
