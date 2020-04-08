@@ -200,6 +200,7 @@ exports.addwish = functions.https.onRequest(async (req,res) => {
 
 });
 
+
 exports.deleteoffer = functions.https.onRequest(async (req, res) => {
 
     //Pre: the offer exists
@@ -208,31 +209,56 @@ exports.deleteoffer = functions.https.onRequest(async (req, res) => {
     //Grabing the parameters
     const id = req.query.id;
 
+    //Getting the offer's document
+    var offerRef = admin.firestore().collection('offer').doc(id);
+
+    //Getting the offer's user
+    let usersOffer;
+    offerRef.get().then(doc => {
+        usersOffer = doc.data().user;
+        return null;
+    }).catch(err => {
+        console.log('Error getting the document', err);
+        res.send("-1");
+    });
+
     //Deleting the offer
-    let deleteOffer = admin.firestore().collection('offer').doc(id).delete();
+    let deleteOffer = offerRef.delete();
 
     //Checking if the offer was deleted successfully
     deleteOffer.then(r => {
         console.log('Delete: ', r);
-        let offerRef = admin.firestore().collection('offer').doc(id);
+        let offerRefCheck = admin.firestore().collection('offer').doc(id);
         // eslint-disable-next-line promise/no-nesting
-        let getDoc = offerRef.get().then(doc => {
-            if(!doc.exists) {
-                res.send("0");
-            }
-            else {
+        offerRefCheck.get().then(doc => {
+            if (!doc.exists) {
+
+                //Deleting the offer from the user's offers
+                let userRef = admin.firestore().collection('user').doc(usersOffer);
+
+                // eslint-disable-next-line promise/no-nesting
+                userRef.update({offer: admin.firestore.FieldValue.arrayRemove(id)})
+                    .then(ref => {
+                    res.send("0");
+                    console.log('Delete', ref);
+                    // eslint-disable-next-line promise/no-nesting
+                    return null;
+                }).catch(err => {
+                    console.log('Error getting the document', err);
+                    res.send("-1");
+                });
+            } else {
                 res.send("1");
             }
             // eslint-disable-next-line promise/no-nesting
-            return null
-            .catch(err => {
-                console.log('Error getting the document', err);
-                res.send("-1");
-            })
+            return null;
+        }).catch(err => {
+            console.log('Error getting the document', err);
+            res.send("-1");
         });
         return null;
     }).catch(err => {
-        console.log('Error deleting', err);
+        console.log('Error getting the document', err);
         res.send("-1");
     });
 });
@@ -245,31 +271,56 @@ exports.deletewish = functions.https.onRequest(async (req, res) => {
     //Grabing the parameters
     const id = req.query.id;
 
+    //Getting the wish’s document
+    var wishRef = admin.firestore().collection('wish').doc(id);
+
+    //Getting the wish’s user
+    let usersWish;
+    wishRef.get().then(doc => {
+        usersWish = doc.data().user;
+        return null;
+    }).catch(err => {
+        console.log('Error getting the document', err);
+        res.send("-1");
+    });
+
     //Deleting the wish
-    let deleteWish = admin.firestore().collection('wish').doc(id).delete();
+    let deleteWish = wishRef.delete();
 
     //Checking if the wish was deleted successfully
     deleteWish.then(r => {
         console.log('Delete: ', r);
-        let wishRef = admin.firestore().collection('wish').doc(id);
+        let wishRefCheck = admin.firestore().collection('wish').doc(id);
         // eslint-disable-next-line promise/no-nesting
-        let getDoc = wishRef.get().then(doc => {
-            if(!doc.exists) {
-                res.send("0");
-            }
-            else {
+        wishRefCheck.get().then(doc => {
+            if (!doc.exists) {
+
+                //Deleting the wish from the user's wishes
+                let userRef = admin.firestore().collection('user').doc(usersWish);
+
+                // eslint-disable-next-line promise/no-nesting
+                userRef.update({wish: admin.firestore.FieldValue.arrayRemove(id)})
+                    .then(ref => {
+                        res.send("0");
+                        console.log('Delete', ref);
+                        // eslint-disable-next-line promise/no-nesting
+                        return null;
+                    }).catch(err => {
+                    console.log('Error getting the document', err);
+                    res.send("-1");
+                });
+            } else {
                 res.send("1");
             }
             // eslint-disable-next-line promise/no-nesting
-            return null
-            .catch(err => {
-                console.log('Error getting the document', err);
-                res.send("-1");
-            })
+            return null;
+        }).catch(err => {
+            console.log('Error getting the document', err);
+            res.send("-1");
         });
         return null;
     }).catch(err => {
-        console.log('Error deleting', err);
+        console.log('Error getting the document', err);
         res.send("-1");
     });
 });
