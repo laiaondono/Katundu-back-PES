@@ -482,3 +482,57 @@ exports.infouser = functions.https.onRequest(async (req,res) => {
 	});
 
 });
+
+exports.getOffers = functions.https.onRequest(async (req, res) => {
+    const user = req.query.un;
+    let docRef = admin.firestore().collection("user").doc(user);
+    let ofertes = [];
+    await docRef.get().then(doc => {
+        if (!doc.exists) {	
+            res.send("1"); //The user doesn't exist
+            throw new Error("User doesn't exist");
+        } else {
+            ofertes = doc.data().offer;
+        }
+        return;        
+    });
+    let resultat = [];
+    let promises = [];
+    ofertes.forEach(oferta => {
+        let offerRef = admin.firestore().collection("offer").doc(oferta);
+        let promise = offerRef.get().then(doc => {
+            resultat.push(doc.data());
+            return;
+        });
+        promises.push(promise);
+    });
+    await Promise.all(promises);
+    res.send(resultat);
+});
+
+exports.getWishes = functions.https.onRequest(async (req, res) => {
+    const user = req.query.un;
+    let docRef = admin.firestore().collection("user").doc(user);
+    let wishes = [];
+    await docRef.get().then(doc => {
+        if (!doc.exists) {	
+            res.send("1"); //The user doesn't exist
+            throw new Error("User doesn't exist");
+        } else {
+            wishes = doc.data().wish;
+        }
+        return;        
+    });
+    let resultat = [];
+    let promises = [];
+    wishes.forEach(wish => {
+        let wishRef = admin.firestore().collection("wish").doc(wish);
+        let promise = wishRef.get().then(doc => {
+            resultat.push(doc.data());
+            return;
+        });
+        promises.push(promise);
+    });
+    await Promise.all(promises);
+    res.send(resultat);
+});
