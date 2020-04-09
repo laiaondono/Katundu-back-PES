@@ -485,54 +485,65 @@ exports.infouser = functions.https.onRequest(async (req,res) => {
 
 exports.getOffers = functions.https.onRequest(async (req, res) => {
     const user = req.query.un;
-    let docRef = admin.firestore().collection("user").doc(user);
-    let ofertes = [];
-    await docRef.get().then(doc => {
-        if (!doc.exists) {	
-            res.send("1"); //The user doesn't exist
-            throw new Error("User doesn't exist");
-        } else {
-            ofertes = doc.data().offer;
-        }
-        return;        
+    let offers = await getCollection(user, "offer").catch( err => {
+        console.log(err);
+        res.send("1");
     });
-    let resultat = [];
-    let promises = [];
-    ofertes.forEach(oferta => {
-        let offerRef = admin.firestore().collection("offer").doc(oferta);
-        let promise = offerRef.get().then(doc => {
-            resultat.push(doc.data());
-            return;
-        });
-        promises.push(promise);
-    });
-    await Promise.all(promises);
-    res.send(resultat);
+    if(Array.isArray(offers) && offers.length !== 0){
+        let resultat = await getElements(offers, "offer");
+        res.send(resultat);
+    }  
 });
 
 exports.getWishes = functions.https.onRequest(async (req, res) => {
     const user = req.query.un;
+    let wishes = await getCollection(user, "wish").catch(err => {
+        console.log(err);
+        res.send("1");
+    });
+    if(Array.isArray(wishes)){
+        let resultat = await getElements(wishes, "wish");
+        res.send(resultat);
+    }
+});
+
+exports.getFavorites = functions.https.onRequest(async (req, res) => {
+    const user = req.query.un;
+    let favorites = await getCollection(user, "favorite").catch(err => {
+        console.log(err);
+        res.send("1");
+    });
+    if(Array.isArray(favorites)){
+        let resultat = await getElements(favorites, "offer");
+        res.send(resultat);
+    }
+});
+
+async function getCollection(user, nameColl){
     let docRef = admin.firestore().collection("user").doc(user);
-    let wishes = [];
+    let collection = [];
     await docRef.get().then(doc => {
         if (!doc.exists) {	
-            res.send("1"); //The user doesn't exist
             throw new Error("User doesn't exist");
         } else {
-            wishes = doc.data().wish;
+            collection = doc.data()[nameColl];
         }
         return;        
-    });
+    }).catch(err => {throw err;});
+    return collection;
+}
+
+async function getElements(elements, nameColl){
     let resultat = [];
     let promises = [];
-    wishes.forEach(wish => {
-        let wishRef = admin.firestore().collection("wish").doc(wish);
-        let promise = wishRef.get().then(doc => {
+    elements.forEach(element => {
+        let elemRef = admin.firestore().collection(nameColl).doc(element);
+        let promise = elemRef.get().then(doc => {
             resultat.push(doc.data());
             return;
         });
         promises.push(promise);
     });
-    await Promise.all(promises);
-    res.send(resultat);
-});
+    await Promise.all(promises);    // esperem a que s'hagin afegit tots
+    return resultat;
+}
