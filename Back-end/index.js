@@ -493,7 +493,8 @@ exports.infouser = functions.https.onRequest(async (req,res) => {
 	  latitud: doc.data().latitud,
 	  longitud: doc.data().longitud,
 	  wish: doc.data().wish,
-	  offer: doc.data().offer
+	  offer: doc.data().offer,
+	  distancia: doc.data().distanciamaxima
 
 	}
 	  res.send(data);
@@ -594,4 +595,21 @@ exports.searchuser = functions.https.onRequest(async (req,res) => {
 		res.send("-1");
   });
   
+});
+
+exports.addfavorite = functions.https.onRequest(async (req,res) => {
+
+	//The objectId is the id of another users offer
+	const user = req.query.user;
+	const objectId = req.query.objectId;
+
+	admin.firestore().collection('user').doc(user).update({
+	    favorite: admin.firestore.FieldValue.arrayUnion(objectId)
+	}).catch(err =>{
+		console.log('Error getting the user info', err);
+		res.send("-1");
+	});
+	res.send("0");
+	return null;
+
 });
