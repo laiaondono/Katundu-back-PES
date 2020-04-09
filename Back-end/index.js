@@ -396,7 +396,6 @@ exports.modifywish = functions.https.onRequest(async (req, res) => {
 	const ty = req.query.type;
 	const kwords = req.query.keywords;
 	const val = req.query.value;
-  const descrpt = req.query.description;
 
   if(n === null || val === null){
     res.send("3")//this values cannot be empty
@@ -405,13 +404,12 @@ exports.modifywish = functions.https.onRequest(async (req, res) => {
   let docRef = admin.firestore().collection("wish").doc(id);
   let getDoc = docRef.get().then(doc => {
     if (!doc.exists) {
-      res.send("1"); //The user doesn't exist
+      res.send("1"); //The wish doesn't exist
       return null;
     } else {
       try{
         docRef.update({
           category: cat,
-          description: descrpt,
           keywords: kwords,
           name: n,
           type: ty,
@@ -420,7 +418,7 @@ exports.modifywish = functions.https.onRequest(async (req, res) => {
         res.send("0"); //Ok
       }
       catch(error){
-        res.send("2"); //error trying to update the user
+        res.send("2"); //error trying to update the wish
       }
       return null;
     }
