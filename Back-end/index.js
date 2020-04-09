@@ -325,6 +325,30 @@ exports.deletewish = functions.https.onRequest(async (req, res) => {
     });
 });
 
+exports.deletefavorite = functions.https.onRequest(async (req, res) => {
+
+    //Pre: the favorite exists
+    //Post: the favorite is no longer in the database
+
+    //Grabing the parameters
+    const id = req.query.id;
+    const un = req.query.un;
+
+    //Deleting the favorite
+    var userRef = admin.firestore().collection('user').doc(un);
+    // eslint-disable-next-line promise/no-nesting
+    userRef.update({favorite: admin.firestore.FieldValue.arrayRemove(id)})
+        .then(ref => {
+            res.send("0");
+            console.log('Delete', ref);
+            // eslint-disable-next-line promise/no-nesting
+            return null;
+        }).catch(err => {
+        console.log('Error getting the document', err);
+        res.send("-1");
+    });
+});
+
 exports.addoffer = functions.https.onRequest(async (req, res) => {
 
     const user = req.query.user;
