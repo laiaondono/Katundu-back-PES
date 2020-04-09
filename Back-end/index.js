@@ -547,3 +547,28 @@ async function getElements(elements, nameColl){
     await Promise.all(promises);    // esperem a que s'hagin afegit tots
     return resultat;
 }
+
+exports.searchuser = functions.https.onRequest(async (req,res) => {
+
+	const username = req.query.username;
+	
+  let user = admin.firestore().collection('user').doc(username);
+  
+  let getDoc = user.get().then(doc => {
+    if (!doc.exists) {
+      res.send("1"); //The user doesn't exist
+      return null;
+    } else {
+      let data = {
+        name : doc.data().name
+      }
+
+      res.send(data);//usuari existeix
+      return null;
+    }
+  }).catch(err =>{
+		console.log('Error getting the user info', err);
+		res.send("-1");
+  });
+  
+});
