@@ -67,6 +67,7 @@ exports.signup = functions.https.onRequest(async (req,res) => {
           name: n,
           latitud: lat,
           longitud: lon,
+	  distanciamaxima: 10
         });
         res.send("0");
         return null;
