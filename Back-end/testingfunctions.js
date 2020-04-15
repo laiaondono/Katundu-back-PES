@@ -164,4 +164,3 @@ describe('deletefavorite', () => {
         myFunctions.deletefavorite(req, res);
     });
 });
-})
