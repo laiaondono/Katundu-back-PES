@@ -563,7 +563,9 @@ async function getElements(elements, nameColl){
     elements.forEach(element => {
         let elemRef = admin.firestore().collection(nameColl).doc(element);
         let promise = elemRef.get().then(doc => {
-            resultat.push(doc.data());
+            let data = doc.data();
+            data.id = doc.id;
+            resultat.push(data);
             return;
         });
         promises.push(promise);
