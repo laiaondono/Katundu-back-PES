@@ -134,6 +134,7 @@ exports.modify_personal_credentials = functions.https.onRequest(async (req,res) 
   const n = req.query.n;
   const lat = req.query.lat;
   const lon = req.query.lon;
+  const dis = req.query.dis;
 	
 	//updating the credentials of the user and checking the user
   let docRef = admin.firestore().collection("user").doc(un);
@@ -149,7 +150,8 @@ exports.modify_personal_credentials = functions.https.onRequest(async (req,res) 
 			  password: pw,
 			  name: n,
 			  latitud: lat,
-			  longitud: lon
+        longitud: lon,
+        dis: dis
 		  });
 		  res.send("0"); //Ok
 	  }
