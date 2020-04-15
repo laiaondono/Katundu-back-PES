@@ -1,4 +1,4 @@
- describe('signup', () => {
+describe('signup', () => {
     it('Should add a user into the firestore database', (done) => {
       const req = { query: {un: 'input3',pw:'input3', n:'input3',lat:'1234',lon:'1234'} };
       const res = {
@@ -27,9 +27,9 @@
         };
       myFunctions.signup(req, res);
     });
-  });
+});
      
-  describe('login', () => {
+describe('login', () => {
     it('Should login an existing user to the application', (done) => {
       // A fake request object, with req.query.un set to 'paula', and req.query.pw set to '123'
       const req = { query: {un: 'paula',pw:'123'} };
@@ -68,8 +68,7 @@
         };
       myFunctions.login(req, res);
     });
-
-  });
+});
 
 describe('deleteaccount', () => {
     let myFunctions;
@@ -118,7 +117,7 @@ describe('modify_credentials', () => {
         };
       myFunctions.modify_personal_credentials(req, res);
     });
-  });
+});
 
 describe('addwish', () => {
     it('Should add a wish to the wish collection and a wish to the users wish list', (done) => {
@@ -134,5 +133,82 @@ describe('addwish', () => {
         };
       myFunctions.addwish(req, res);
     });
+});
 
-  });
+describe('deleteoffer', () => {
+    let myFunctions;
+
+    before(() => {
+        // Require index.js and save the exports inside a namespace called myFunctions.
+        // This includes our cloud functions, which can now be accessed at myFunctions.makeUppercase
+        // and myFunctions.addMessage
+        myFunctions = require('../index.js');
+    });
+    after(() => {
+        // Do cleanup tasks.
+        test.cleanup();
+    });
+
+    it("Should delete the user's offer from the firestore database", () => {
+        const req = { query: {id: 'idOffer'} };
+        const res = {
+            send: (code) =>{
+                assert.equal(code,0);
+                done();
+            }
+        };
+        myFunctions.deleteoffer(req, res);
+    });
+});
+
+describe('deletewish', () => {
+    let myFunctions;
+
+    before(() => {
+        // Require index.js and save the exports inside a namespace called myFunctions.
+        // This includes our cloud functions, which can now be accessed at myFunctions.makeUppercase
+        // and myFunctions.addMessage
+        myFunctions = require('../index.js');
+    });
+    after(() => {
+        // Do cleanup tasks.
+        test.cleanup();
+    });
+
+    it("Should delete the user's wish from the firestore database", () => {
+        const req = { query: {id: 'idWish'} };
+        const res = {
+            send: (code) =>{
+                assert.equal(code,0);
+                done();
+            }
+        };
+        myFunctions.deletewish(req, res);
+    });
+});
+
+describe('deletefavorite', () => {
+    let myFunctions;
+
+    before(() => {
+        // Require index.js and save the exports inside a namespace called myFunctions.
+        // This includes our cloud functions, which can now be accessed at myFunctions.makeUppercase
+        // and myFunctions.addMessage
+        myFunctions = require('../index.js');
+    });
+    after(() => {
+        // Do cleanup tasks.
+        test.cleanup();
+    });
+
+    it("Should delete the user's favorite from the firestore database", () => {
+        const req = { query: {un: 'laia', id: 'idFavorite'} };
+        const res = {
+            send: (code) =>{
+                assert.equal(code,0);
+                done();
+            }
+        };
+        myFunctions.deletefavorite(req, res);
+    });
+});
