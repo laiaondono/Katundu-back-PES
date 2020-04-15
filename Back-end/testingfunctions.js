@@ -71,18 +71,6 @@ describe('login', () => {
 });
 
 describe('deleteaccount', () => {
-    let myFunctions;
-
-    before(() => {
-        // Require index.js and save the exports inside a namespace called myFunctions.
-        // This includes our cloud functions, which can now be accessed at myFunctions.makeUppercase
-        // and myFunctions.addMessage
-        myFunctions = require('../index.js');
-    });
-    after(() => {
-        // Do cleanup tasks.
-        test.cleanup();
-    });
 
     it("Should delete the user's data from the firestore database", () => {
         const req = { query: {un: 'laia'} };
@@ -136,18 +124,6 @@ describe('addwish', () => {
 });
 
 describe('deleteoffer', () => {
-    let myFunctions;
-
-    before(() => {
-        // Require index.js and save the exports inside a namespace called myFunctions.
-        // This includes our cloud functions, which can now be accessed at myFunctions.makeUppercase
-        // and myFunctions.addMessage
-        myFunctions = require('../index.js');
-    });
-    after(() => {
-        // Do cleanup tasks.
-        test.cleanup();
-    });
 
     it("Should delete the user's offer from the firestore database", () => {
         const req = { query: {id: 'idOffer'} };
@@ -162,18 +138,6 @@ describe('deleteoffer', () => {
 });
 
 describe('deletewish', () => {
-    let myFunctions;
-
-    before(() => {
-        // Require index.js and save the exports inside a namespace called myFunctions.
-        // This includes our cloud functions, which can now be accessed at myFunctions.makeUppercase
-        // and myFunctions.addMessage
-        myFunctions = require('../index.js');
-    });
-    after(() => {
-        // Do cleanup tasks.
-        test.cleanup();
-    });
 
     it("Should delete the user's wish from the firestore database", () => {
         const req = { query: {id: 'idWish'} };
@@ -188,18 +152,6 @@ describe('deletewish', () => {
 });
 
 describe('deletefavorite', () => {
-    let myFunctions;
-
-    before(() => {
-        // Require index.js and save the exports inside a namespace called myFunctions.
-        // This includes our cloud functions, which can now be accessed at myFunctions.makeUppercase
-        // and myFunctions.addMessage
-        myFunctions = require('../index.js');
-    });
-    after(() => {
-        // Do cleanup tasks.
-        test.cleanup();
-    });
 
     it("Should delete the user's favorite from the firestore database", () => {
         const req = { query: {un: 'laia', id: 'idFavorite'} };
@@ -212,3 +164,4 @@ describe('deletefavorite', () => {
         myFunctions.deletefavorite(req, res);
     });
 });
+})
