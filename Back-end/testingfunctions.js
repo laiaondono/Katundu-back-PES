@@ -180,7 +180,7 @@ describe('searchuser', () => {
 describe('modifywish', () => {
 
   it("Should modify a wish from the firestore database", () => {
-      const req = { query: {id: 'idWish', name:'Iphone X', category: 'Tecnologia', type: 'producte', keywords:['#Iphone', '#X'], value:'800' } };
+      const req = { query: {id: 'idWish', name:'Iphone X', category: 'Tecnologia', type: 'producte', keywords:['Iphone', 'X'], value:'800' } };
       const res = {
           send: (code) =>{
               assert.equal(code,0);
