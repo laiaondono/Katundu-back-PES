@@ -117,8 +117,8 @@ function getParameters(params) {
     if (params.hasOwnProperty('pw')) {
         dataToModify.password = params.pw;
     }
-    if (params.hasOwnProperty('dis')) {
-        dataToModify.dis = params.dis;
+    if (params.hasOwnProperty('distanciamaxima')) {
+        dataToModify.distanciamaxima = params.distanciamaxima;
     }
     return dataToModify;
 }
