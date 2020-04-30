@@ -26,6 +26,40 @@ exports.wishCreated = functions.firestore.document('wish/{id}')
     });
 });
 
+exports.chatCreated = functions.firestore.document('chat/{id}')
+  .onCreate(async (snap, context) => {
+    const chatID = context.params.id;
+    const username1 = snap.data()['user1'];
+    const username2 = snap.data()['user2'];
+    // afegim la referencia al chat a l'usuari 1
+    const user1 = admin.firestore().collection("user").doc(username1);
+    const doc1 = await user1.get();
+    let chats = doc1.data().chats;
+    chats[username2] = chatID;
+    await user1.update({
+        chats: chats
+    });
+    // afegiom la referencia al chat a l'usuari 2
+    const user2 = admin.firestore().collection("user").doc(username2);
+    const doc2 = await user2.get();
+    chats = doc2.data().chats;
+    chats[username1] = chatID;
+    await user2.update({
+        chats: chats
+    });
+});
+
+exports.messageCreated = functions.firestore.document('chat/{id}/message/{idMessage}')
+  .onCreate(async (snap, context) => {
+    const chatID = context.params.id;
+    const messageID = context.params.idMessage;
+    const date = snap.data()['time'].toDate();
+    const messageRef = admin.firestore().collection("chat").doc(id).collection('message').doc(messageID);
+    return messageRef.update({
+      time: date
+    });
+});
+
 exports.offerDeleted = functions.firestore.document('offer/{id}')
   .onDelete(async (snap, context) => {
     const offerID = context.params.id;
