@@ -58,3 +58,69 @@ exports.create = functions.https.onRequest(async (req, res) => {
         return null;
     });
 });
+
+exports.getByID = functions.https.onRequest(async (req, res) => {
+    chatID = req.query.id;
+    const chatRef = admin.firestore().collection('chat').doc(chatID);
+    return chatRef.get().then(doc => {
+        res.send(doc.data());
+        return null;
+    }).catch(err => {
+        console.log("Error:", err);
+        res.send("-1");
+        return null;
+    });
+});
+
+exports.getID = functions.https.onRequest(async (req, res) => {
+    const user1 = req.query.un1;
+    const user2 = req.query.un2;
+
+    const userRef1 = admin.firestore().collection('user').doc(user1);
+
+    return userRef1.get().then(doc => {
+        if(doc.data().chats.hasOwnProperty(user2)){
+            res.send(doc.data().chats[user2]);
+        }
+        else {
+            res.send("1"); // Chat doesn't exist
+        } 
+        return null;
+    }).catch(err => {
+        console.log("Error:", err);
+        res.send("-1");
+        return null;
+    });
+});
+
+exports.addMessage = functions.https.onRequest(async (req, res) => {
+    chatID = req.query.id;
+    username = req.query.un;
+    message = req.query.message;
+    const chatRef = admin.firestore().collection('chat').doc(chatID).collection('messages');
+    let time = FieldValue.serverTimestamp();
+    data = {
+        username: username,
+        message: message,
+        time: time
+    }
+    return chatRef.add(data).then((doc) => {
+        res.send("0");
+        return null;
+    }).catch(err => {
+        console.log("Error", err);
+        return null;
+    });
+});
+
+exports.getMessages = functions.https.onRequest(async (req, res) => {
+    chatID = req.query.id;
+    const chatRef = admin.firestore().collection('chat').doc(chatID).collection('messages').orderBy("time", "desc").limit(100);
+    const snapshot = await chatRef.get();
+    res.send(snapshot.docs.map(doc => {
+        let data = doc.data();
+        data.time = data.time.toDate();
+        return data;
+    }));
+    return null;
+});
