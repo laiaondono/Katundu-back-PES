@@ -100,6 +100,31 @@ exports.delete = functions.https.onRequest(async (req,res) => {
     });
 });
 
+exports.search = functions.https.onRequest(async (req,res) => {
+
+	const un = req.query.un;
+	
+  let user = admin.firestore().collection('user').doc(un);
+  
+  let getDoc = user.get().then(doc => {
+    if (!doc.exists) {
+      res.send("1"); //The user doesn't exist
+      return null;
+    } else {
+      let data = {
+        name : doc.data().name
+      }
+
+      res.send(data);//usuari existeix
+      return null;
+    }
+  }).catch(err =>{
+		console.log('Error getting the user info', err);
+		res.send("-1");
+  });
+  
+});
+
 function getParameters(params) {
     let dataToModify = {};
     if (params.hasOwnProperty('lat')) {
