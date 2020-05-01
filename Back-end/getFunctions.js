@@ -43,6 +43,15 @@ exports.favorites = functions.https.onRequest(async (req, res) => {
     }
 });
 
+exports.chats = functions.https.onRequest(async (req, res) => {
+    const user = req.query.un;
+    let chats = await getCollection(user, "chats").catch(err => {
+        console.log(err);
+        res.send("-1");
+    });
+    res.send(chats);
+});
+
 exports.infoUser = functions.https.onRequest(async (req, res) => {
     const user = req.query.un;
     let info = await getElements([user], "user").catch(err => {
