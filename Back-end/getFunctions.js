@@ -102,7 +102,6 @@ function filterUser(data){
         return "-1";
     }
     else{
-        delete data.password;
         delete data.wish;
         delete data.favorite;
         return data;
