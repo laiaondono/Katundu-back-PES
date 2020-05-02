@@ -66,6 +66,38 @@ exports.infoUser = functions.https.onRequest(async (req, res) => {
     }
 });
 
+//Cerca de productes amb filtres
+exports.products = functions.https.onRequest(async (req, res) => {
+    const params = req.query;
+	let prods = [];
+	let offers = await getOffers();
+	offers.forEach(offer => {
+		if(params.hasOwnProperty('name')){
+			if(params.name === offer.name)
+				prods.push(offer);
+		}
+		else if (params.hasOwnProperty('category')){
+			if(params.category === offer.category)
+				prods.push(offer);
+		}
+		else if (params.hasOwnProperty('value')){
+			if(params.value*0.8 < offer.value && params.value*1.2 > offer.value)
+				prods.push(offer);
+		}
+		else if (params.hasOwnProperty('type')){
+			if(params.type === offer.type)
+				prods.push(offer);
+		}
+		else if (params.hasOwnProperty('keyword')){
+			if(offer.keywords.includes(params.keyword))
+				prods.push(offer);
+		}
+	})
+	res.send(prods);
+	return null;
+
+});
+
 async function getCollection(user, nameColl){
     let docRef = admin.firestore().collection("user").doc(user);  // all data from user
     let collection = [];
