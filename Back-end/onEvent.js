@@ -49,14 +49,18 @@ exports.chatCreated = functions.firestore.document('chat/{id}')
     });
 });
 
-exports.messageCreated = functions.firestore.document('chat/{id}/message/{idMessage}')
+exports.messageCreated = functions.firestore.document('chat/{id}/messages/{idMessage}')
   .onCreate(async (snap, context) => {
     const chatID = context.params.id;
     const messageID = context.params.idMessage;
     const date = snap.data()['time'].toDate();
-    const messageRef = admin.firestore().collection("chat").doc(id).collection('message').doc(messageID);
+    let dateAsISOString = date.toISOString();
+    let stringToShow = `Message ${messageID} added to ${chatID} at ${dateAsISOString}`;
+    console.log(stringToShow);
+    const messageRef = admin.firestore().collection("chat").doc(chatID).collection('messages').doc(messageID);
     return messageRef.update({
-      time: date
+      time: date,
+      order: dateAsISOString
     });
 });
 
