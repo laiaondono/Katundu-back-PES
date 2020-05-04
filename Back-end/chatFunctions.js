@@ -114,12 +114,24 @@ exports.addMessage = functions.https.onRequest(async (req, res) => {
 });
 
 exports.getMessages = functions.https.onRequest(async (req, res) => {
-    chatID = req.query.id;
-    const chatRef = admin.firestore().collection('chat').doc(chatID).collection('messages').orderBy("time", "desc").limit(100);
-    const snapshot = await chatRef.get();
+    let chatID = req.query.id;
+    const chatRef = admin.firestore().collection('chat').doc(chatID);
+    let limit = 100;
+    if(req.query.hasOwnProperty('n')){
+        limit = parseInt(req.query.n);
+    }
+    let messageRef;
+    if(req.query.hasOwnProperty('start')){
+        messageRef = chatRef.collection('messages').where("order", ">", req.query.start).orderBy("order", "desc").limit(limit);
+    }
+    else {
+        messageRef = chatRef.collection('messages').orderBy("order", "desc").limit(limit);
+    }    
+    const snapshot = await messageRef.get();
     res.send(snapshot.docs.map(doc => {
         let data = doc.data();
         data.time = data.time.toDate();
+        data.delete('order')
         return data;
     }));
     return null;
