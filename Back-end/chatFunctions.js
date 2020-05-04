@@ -131,7 +131,6 @@ exports.getMessages = functions.https.onRequest(async (req, res) => {
     res.send(snapshot.docs.map(doc => {
         let data = doc.data();
         data.time = data.time.toDate();
-        data.delete('order')
         return data;
     }));
     return null;
