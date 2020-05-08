@@ -109,6 +109,7 @@ exports.addMessage = functions.https.onRequest(async (req, res) => {
         return null;
     }).catch(err => {
         console.log("Error", err);
+        res.send("-1");
         return null;
     });
 });
@@ -122,10 +123,10 @@ exports.getMessages = functions.https.onRequest(async (req, res) => {
     }
     let messageRef;
     if(req.query.hasOwnProperty('start')){
-        messageRef = chatRef.collection('messages').where("order", ">", req.query.start).orderBy("order", "desc").limit(limit);
+        messageRef = chatRef.collection('messages').where("order", ">", req.query.start).orderBy("order", "asc").limit(limit);
     }
     else {
-        messageRef = chatRef.collection('messages').orderBy("order", "desc").limit(limit);
+        messageRef = chatRef.collection('messages').where("order", ">", "2020-01-01T00:00:01.071Z").orderBy("order", "asc").limit(limit);
     }    
     const snapshot = await messageRef.get();
     res.send(snapshot.docs.map(doc => {
