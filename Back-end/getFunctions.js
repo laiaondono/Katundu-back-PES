@@ -49,7 +49,9 @@ exports.chats = functions.https.onRequest(async (req, res) => {
         console.log(err);
         res.send("-1");
     });
-    res.send(chats);
+    res.send(Object.keys(chats).map((key) => { 
+        return {"user": key, "id": chats[key]}; 
+    }));
 });
 
 exports.infoUser = functions.https.onRequest(async (req, res) => {
