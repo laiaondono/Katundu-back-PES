@@ -6,7 +6,6 @@ exports.offerMatch = functions.https.onRequest(async (req, res) => {
     console.log("Tinc Offers");
     let wishes = await getWishes();
     console.log("Tinc Wishes");
-    //Fins aqui funciona bé
     let resultat = getOffersWished(offers, wishes);
     console.log("Tinc Resultat")
     res.send(resultat);
