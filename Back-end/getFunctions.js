@@ -68,35 +68,40 @@ exports.infoUser = functions.https.onRequest(async (req, res) => {
     }
 });
 
-//Cerca de productes amb filtres
 exports.products = functions.https.onRequest(async (req, res) => {
     const params = req.query;
-	let prods = [];
-	let offers = await getOffers();
+    let prods = [];
+    let offers = await getOffers();
+    var us1 = admin.firestore().collection('user').doc(params.username);
+
 	offers.forEach(offer => {
-		if(params.hasOwnProperty('name')){
-			if(params.name === offer.name)
-				prods.push(offer);
+	var us2 = admin.firestore().collection('user').doc(offer.user);
+	var valid = true;
+	if(!getDistanceFromLatLonInKm(us1,us2)) valid = false;
+		if(params.hasOwnProperty('name') && valid){
+			if(params.name !== offer.name)
+				valid = false;
 		}
-		else if (params.hasOwnProperty('category')){
-			if(params.category === offer.category)
-				prods.push(offer);
+		if (params.hasOwnProperty('category') && valid){
+			if(params.category !== offer.category)
+				valid = false;
 		}
-		else if (params.hasOwnProperty('value')){
-			if(params.value*0.8 < offer.value && params.value*1.2 > offer.value)
-				prods.push(offer);
+		if (params.hasOwnProperty('value') && valid){
+			if(!(params.value*0.8 < offer.value && params.value*1.2 > offer.value))
+				valid = false;
 		}
-		else if (params.hasOwnProperty('type')){
-			if(params.type === offer.type)
-				prods.push(offer);
+		if (params.hasOwnProperty('type') && valid){
+			if(params.type !== offer.type)
+				valid = false;
 		}
-		else if (params.hasOwnProperty('keyword')){
-			if(offer.keywords.includes(params.keyword))
-				prods.push(offer);
+		if (params.hasOwnProperty('keyword') && valid){
+			if(!(offer.keywords.includes(params.keyword)))
+				valid = false;
 		}
+		if(valid) prods.push(offer);
 	})
 	res.send(prods);
-	return null;
+	return prods;
 
 });
 
