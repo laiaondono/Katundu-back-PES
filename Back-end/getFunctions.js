@@ -105,6 +105,25 @@ exports.products = functions.https.onRequest(async (req, res) => {
 
 });
 
+exports.users = functions.https.onRequest(async (req, res) => {
+    let users = [];
+    let usersRef = admin.firestore().collection("user").get()
+    .then(snapshot=>{
+        snapshot.forEach(doc =>{
+        let data = {
+            username: doc.id
+        }
+            users.push(data);
+        });
+        res.send(users);
+        return null;
+    })
+    .catch(err => {
+    console.log('Error getting documents', err);
+  });
+
+});
+
 async function getCollection(user, nameColl){
     let docRef = admin.firestore().collection("user").doc(user);  // all data from user
     let collection = [];
