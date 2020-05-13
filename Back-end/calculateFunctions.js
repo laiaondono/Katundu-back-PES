@@ -7,10 +7,9 @@ exports.offerMatch = functions.https.onRequest(async (req, res) => {
     let wishes = await getWishes();
     console.log("Tinc Wishes");
     //Fins aqui funciona bé
-    let resultat = getOffersWished(offers, wishes);
+    getOffersWished(offers, wishes);
     console.log("Tinc Resultat")
-    res.send(resultat);
-    return null;
+    return "0";
 });
 
 async function getOffers() {
@@ -32,24 +31,24 @@ async function getWishes() {
 }
 
 function getOffersWished(offers, wishes){
-    let users = {};
-    wishes.forEach(wish => {
-        users[wish.user] = [];
-    });
     wishes.forEach(wish => {
         offers.forEach(offer => {
             if(isAMatch(offer, wish)){
                 var us1 = admin.firestore().collection('user').doc(offer.user);
                 var us2 = admin.firestore().collection('user').doc(wish.user);
-                if(SearchOfferMatch(us2, us1)){
-                    if(getDistanceFromLatLonInKm(us1,us2)){
-                        users[wish.user] = [...users[wish.user], offer.id];
+                if(getDistanceFromLatLonInKm(us1,us2)){
+                    let offer2 = SearchOfferMatch(us2, us1);
+                    if(offer2 === "0"){
+                        addInteres(us2, offer);
+                    }
+                    else{
+                        addMatches(offer, offer2);
                     }
                 }
             }
+            console.log("finish one wish");
         })
     });
-    return users;
 }
 
 function getDistanceFromLatLonInKm(user1, user2) {
@@ -98,14 +97,61 @@ function isAMatch(offer, wish){
 function SearchOfferMatch(usuariW, usuariO){
     //usuariW busca oferta
     //usuariO busca wish
-    var Ofertes = usuariW.offer;
-    var Wishes = usuariO.wish;
-    Wishes.forEach(wish => {
-        Ofertes.forEach(offer => {
-            if(isAMatch(offer, wish)){
-                return true;
-            }
-        })
+    let Ofertes = usuariW.offer;
+    let Wishes = usuariO.wish;
+    //console.log(Wishes);
+    //console.log(Ofertes);
+    if(Wishes === undefined || Ofertes === undefined){
+        return "0";
+    }
+    else{
+        Wishes.forEach(wish => {
+            Ofertes.forEach(offer => {
+                if(isAMatch(offer, wish)){
+                    return offer;
+                }
+            })
+        });
+        return "0";
+    }
+}
+
+async function addMatches(oferta1, oferta2) {
+    let addDoc = admin.firestore().collection('match').add({
+        oferta1: oferta1,
+        oferta2: oferta2,
+  
+      }).then(ref => {
+        console.log('Added wish with ID: ', ref.id);
+
+      admin.firestore().collection('user').doc(user).update({
+        match: admin.firestore.FieldValue.arrayUnion(ref.id)
+      })
+      res.send(ref.id);
+  
+      return null;
+  
+      }).catch(err =>{
+          console.log('Error adding a new match', err);
+          res.send("-1");
+      });
+}
+
+async function addInteres(usuari, oferta) {
+    const userRef = admin.firestore().collection('interes').doc(usuari);
+    let userData = await userRef.get().catch(() => {
+        res.send("-1"); 
+        return null;
     });
-    return false;
+    if (userData.exists) {
+        userRef.update({
+            offer : admin.firestore.FieldValue.arrayUnion(oferta)
+        })
+    } else {
+        dataToAdd.offer = [];
+        dataToAdd.offer.push(oferta);
+        let setnewdata = userRef.set(dataToAdd);
+        res.send("0"); // Interes Created
+        return setnewdata;
+    }
 }
