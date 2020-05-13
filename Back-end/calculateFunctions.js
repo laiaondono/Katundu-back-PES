@@ -6,6 +6,7 @@ exports.offerMatch = functions.https.onRequest(async (req, res) => {
     console.log("Tinc Offers");
     let wishes = await getWishes();
     console.log("Tinc Wishes");
+    //Fins aqui funciona bé
     let resultat = getOffersWished(offers, wishes);
     console.log("Tinc Resultat")
     res.send(resultat);
@@ -40,8 +41,10 @@ function getOffersWished(offers, wishes){
             if(isAMatch(offer, wish)){
                 var us1 = admin.firestore().collection('user').doc(offer.user);
                 var us2 = admin.firestore().collection('user').doc(wish.user);
-                if(getDistanceFromLatLonInKm(us1,us2)){
-                    users[wish.user] = [...users[wish.user], offer.id];
+                if(SearchOfferMatch(us2, us1)){
+                    if(getDistanceFromLatLonInKm(us1,us2)){
+                        users[wish.user] = [...users[wish.user], offer.id];
+                    }
                 }
             }
         })
@@ -90,4 +93,19 @@ function isAMatch(offer, wish){
     else{
         return false;
     }
+}
+
+function SearchOfferMatch(usuariW, usuariO){
+    //usuariW busca oferta
+    //usuariO busca wish
+    var Ofertes = usuariW.offer;
+    var Wishes = usuariO.wish;
+    Wishes.forEach(wish => {
+        Ofertes.forEach(offer => {
+            if(isAMatch(offer, wish)){
+                return true;
+            }
+        })
+    });
+    return false;
 }
