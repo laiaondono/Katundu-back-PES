@@ -141,14 +141,104 @@ exports.matches = functions.https.onRequest(async (req, res) => {
     return null;
 });
 
+exports.products = functions.https.onRequest(async (req, res) => {
+    const params = req.query;
+    let prods = [];
+    let offers = await getOffers();
+
+
+    const user1 = await admin.firestore().collection('user').doc(params.username).get();
+    let promises = []
+    offers.forEach(async offer => {
+    	
+    	const promise = admin.firestore().collection('user').doc(offer.user).get().then(doc =>{
+            const user2 = doc.data();
+            var valid = true;
+            if(user1.data().username === user2.username) valid = false;
+            if(!getDistanceFromLatLonInKm(user1.data(),user2)) valid = false;
+            if(params.hasOwnProperty('name') && valid){
+                if(params.name !== offer.name)
+                    valid = false;
+            }
+            if (params.hasOwnProperty('category') && valid){
+                if(params.category !== offer.category)
+                    valid = false;
+            }
+            if (params.hasOwnProperty('value') && valid){
+                if(!(params.value*0.8 < offer.value && params.value*1.2 > offer.value))
+                    valid = false;
+            }
+            if (params.hasOwnProperty('type') && valid){
+                if(params.type !== offer.type)
+                    valid = false;
+            }
+            if (params.hasOwnProperty('keyword') && valid){
+                if(!(offer.keywords.includes(params.keyword)))
+                    valid = false;
+            }
+            if(valid) prods.push(offer);    
+            return null;        
+        });
+        promises.push(promise)
+;
+        console.log(prods);
+    })
+    await Promise.all(promises);
+    res.send(prods);
+    return prods;
+
+});
+
+function getDistanceFromLatLonInKm(user1, user2) {
+    console.log(user1);
+    console.log(user2);
+    if(user1 === undefined || user2 === undefined){
+        return false;
+    }
+    var lat1 = parseFloat(user1.latitud);
+    var lon1 = parseFloat(user1.longitud);
+    var lat2 = parseFloat(user2.latitud);
+    var lon2 = parseFloat(user2.longitud);
+    var dismaxima = Math.min(parseFloat(user1.distanciamaxima), parseFloat(user2.distanciamaxima));
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1); 
+    var a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(lat1))  Math.cos(deg2rad(lat2))  
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ; 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in km
+    if(d<=dismaxima){
+        return true;
+    }
+    else return false;
+  }
+  
+function deg2rad(deg) {
+    return deg * (Math.PI/180);
+}
+
+async function getOffers() {
+    const snapshot = await admin.firestore().collection('offer').get()
+    return snapshot.docs.map(doc => {
+        const data = doc.data();
+        data.id = doc.id;
+        return data;
+    });
+}
+
 async function getPair(match){
     let pair = {}
     await admin.firestore().collection('offer').doc(match.offer1).get().then(doc => {
         pair["offer1"] = doc.data();
+        pair["offer1"].id = doc.id;
         return null;
     });
     await admin.firestore().collection('offer').doc(match.offer2).get().then(doc => {
         pair["offer2"] = doc.data();
+        pair["offer2"].id = doc.id;
         return null;
     });
     console.log(pair);
