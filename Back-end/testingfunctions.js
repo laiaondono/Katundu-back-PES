@@ -163,4 +163,32 @@ describe('deletefavorite', () => {
         };
         myFunctions.deletefavorite(req, res);
     });
+describe('searchuser', () => {
+
+  it("Should search an user from the firestore database", () => {
+      const req = { query: {un: 'annallanza'} };
+      const res = {
+          send: (code) =>{
+              assert.equal(code,'Anna');
+              done();
+          }
+      };
+      myFunctions.searchuser(req, res);
+  });
+});
+
+describe('modifywish', () => {
+
+  it("Should modify a wish from the firestore database", () => {
+      const req = { query: {id: 'idWish', name:'Iphone X', category: 'Tecnologia', type: 'producte', keywords:['Iphone', 'X'], value:'800' } };
+      const res = {
+          send: (code) =>{
+              assert.equal(code,0);
+              done();
+          }
+      };
+      myFunctions.modifywish(req, res);
+  });
+});
+   
 });
