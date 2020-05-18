@@ -127,18 +127,23 @@ exports.users = functions.https.onRequest(async (req, res) => {
 exports.matches = functions.https.onRequest(async (req, res) => {
     const user = req.query.un;
     const matches = await admin.firestore().collection('match').doc(user).get();
-    let result = [];
-    let promises = [];
-    matches.data().match.forEach(match => {
-        let promise = getPair(match).then(pair => {
-            result.push(pair);
-            return null;
+    if(!matches.exists){
+        res.send([]);
+    }
+    else{
+        let result = [];
+        let promises = [];
+        matches.data().match.forEach(match => {
+            let promise = getPair(match).then(pair => {
+                result.push(pair);
+                return null;
+            });
+            promises.push(promise);
         });
-        promises.push(promise);
-    });
-    await Promise.all(promises);
-    res.send(result);
-    return null;
+        await Promise.all(promises);
+        res.send(result);
+    }
+    return null; 
 });
 
 exports.products = functions.https.onRequest(async (req, res) => {
