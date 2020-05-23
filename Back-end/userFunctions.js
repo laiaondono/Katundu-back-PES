@@ -49,7 +49,9 @@ exports.add = functions.https.onRequest(async (req, res) => {
         dataToAdd.offer = [];
         dataToAdd.wish = [];
         dataToAdd.favorite = [];
+        dataToAdd.post = [];
         dataToAdd.distanciamaxima = 10;
+	dataToAdd.valoracio = -1;
         let setnewdata = userRef.set(dataToAdd);
         res.send("0"); // User Created
         return setnewdata;
