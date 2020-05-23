@@ -79,6 +79,21 @@ exports.valoracio = functions.https.onRequest(async (req, res) => {
     return null;
 });
 
+exports.post = functions.https.onRequest(async (req, res) => {
+    let dades = getParameters(req.query);
+    dades.time = FieldValue.serverTimestamp();
+    let elemRef = admin.firestore().collection("post");
+    elemRef.add(dades).then(doc => {
+        res.send(doc.id);
+        return null;
+    }).catch(err => {
+        console.log("An error have ocurred: ", err);
+        res.send("-1");
+        return null;
+    });
+    return;
+});
+
 function getParameters(params){
     let dataToModify = {};
     if(params.hasOwnProperty('un')){
