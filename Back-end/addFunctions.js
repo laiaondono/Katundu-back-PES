@@ -41,11 +41,51 @@ exports.favorite = functions.https.onRequest(async (req, res) => {
     }
     else{
         await userRef.update({
-            favorite: [...doc.data().favorite, favID]
+            favorite: [...doc.data().favorite, favID],
+            trofeo: admin.firestore.FieldValue.arrayUnion(4)
         });
         res.send("Favorite Added");
     }
     return;
+});
+
+exports.valoracio = functions.https.onRequest(async (req, res) => {
+    const user = req.query.user; //usuari al que afegim la valoracio
+    const punt = parseFloat(req.query.punt);
+
+    const userRef = admin.firestore().collection('valoracio').doc(user);
+    const userData = await userRef.get();
+
+    if (!userData.exists) {
+        let dataToAdd = {}
+        dataToAdd.valoracio = [];
+        let setnewdata = userRef.set(dataToAdd);
+    } 
+
+    userRef.update({
+        valoracio: [...userData.data().valoracio, punt]
+    })
+
+    let valors = userData.data().valoracio;
+    var val = punt;
+    var nvals = 1;
+    valors.forEach(valor => {
+        val = val + valor;
+        nvals = nvals + 1;
+    })
+
+    val = val/nvals;
+
+    const profileRef = admin.firestore().collection('user').doc(user);
+    const profileData = await profileRef.get();
+    profileRef.update({
+        valoracio: val
+    })
+
+
+    res.send("0");
+    return null;
+
 });
 
 function getParameters(params){
