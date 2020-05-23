@@ -72,37 +72,43 @@ exports.products = functions.https.onRequest(async (req, res) => {
     const params = req.query;
     let prods = [];
     let offers = await getOffers();
-    var us1 = admin.firestore().collection('user').doc(params.username);
-
-	offers.forEach(offer => {
-	var us2 = admin.firestore().collection('user').doc(offer.user);
-	var valid = true;
-	if(!getDistanceFromLatLonInKm(us1,us2)) valid = false;
-		if(params.hasOwnProperty('name') && valid){
-			if(params.name !== offer.name)
-				valid = false;
-		}
-		if (params.hasOwnProperty('category') && valid){
-			if(params.category !== offer.category)
-				valid = false;
-		}
-		if (params.hasOwnProperty('value') && valid){
-			if(!(params.value*0.8 < offer.value && params.value*1.2 > offer.value))
-				valid = false;
-		}
-		if (params.hasOwnProperty('type') && valid){
-			if(params.type !== offer.type)
-				valid = false;
-		}
-		if (params.hasOwnProperty('keyword') && valid){
-			if(!(offer.keywords.includes(params.keyword)))
-				valid = false;
-		}
-		if(valid) prods.push(offer);
-	})
-	res.send(prods);
-	return prods;
-
+    const user1 = await admin.firestore().collection('user').doc(params.username).get();
+    let promises = []
+    offers.forEach(async offer => {
+        const promise = admin.firestore().collection('user').doc(offer.user).get().then(doc =>{
+            const user2 = doc.data();
+            var valid = true;
+            if(params.username === offer.user) valid = false;
+            if(!getDistanceFromLatLonInKm(user1.data(),user2)) valid = false;
+            if(params.hasOwnProperty('name') && valid){
+                if(params.name !== offer.name)
+                    valid = false;
+            }
+            if (params.hasOwnProperty('category') && valid){
+                if(params.category !== offer.category)
+                    valid = false;
+            }
+            if (params.hasOwnProperty('value') && valid){
+                if(!(params.value*0.8 < offer.value && params.value*1.2 > offer.value))
+                    valid = false;
+            }
+            if (params.hasOwnProperty('type') && valid){
+                if(params.type !== offer.type)
+                    valid = false;
+            }
+            if (params.hasOwnProperty('keyword') && valid){
+                if(!(offer.keywords.includes(params.keyword)))
+                    valid = false;
+            }
+            if(valid) prods.push(offer);    
+            return null;        
+        });
+        promises.push(promise);
+        console.log(prods);
+    })
+    await Promise.all(promises);
+    res.send(prods);
+    return prods;
 });
 
 exports.users = functions.https.onRequest(async (req, res) => {
@@ -121,6 +127,19 @@ exports.users = functions.https.onRequest(async (req, res) => {
     .catch(err => {
     console.log('Error getting documents', err);
   });
+
+});
+
+exports.posts = functions.https.onRequest(async (req, res) => {
+    const postsRef = admin.firestore().collection('post').orderBy("time", "desc");
+    const snapshot = await postsRef.get();
+    res.send(snapshot.docs.map(doc => {
+        let data = doc.data();
+        data.time = data.time.toDate();
+        data.id = doc.id;
+        return data;
+    }));
+    return null;
 
 });
 
@@ -161,7 +180,6 @@ function filterUser(data){
     }
     else{
         delete data.wish;
-        delete data.favorite;
         return data;
     }
 }
