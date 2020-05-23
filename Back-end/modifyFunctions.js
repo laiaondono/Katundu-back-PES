@@ -1,7 +1,7 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
 
-// FUNCIONS D'AFEGIR
+// FUNCIONS DE MODIFICAR
 
 exports.offer = functions.https.onRequest(async (req, res) => {
     const id = req.query.id;
@@ -19,6 +19,9 @@ exports.offer = functions.https.onRequest(async (req, res) => {
         res.send("1"); //The offer doesn't exist
     }
     else{
+        admin.firestore().collection('user').doc(offerDoc.data().user).update({
+            trofeo: admin.firestore.FieldValue.arrayUnion(3)
+        })
         offerRef.update(dades).then(doc => {
             res.send(0);
             return null;
@@ -58,6 +61,36 @@ exports.wish = functions.https.onRequest(async (req, res) => {
     }
     return null;
 });
+
+exports.post = functions.https.onRequest(async (req, res) => {
+    const id = req.query.id;
+    let dades = getParameters(req.query);
+    if(dades.title === null || dades.description === null){
+        res.send("3")//this values cannot be empty
+        return null
+    }
+    let postRef = admin.firestore().collection("post").doc(id);
+    let postDoc = await postRef.get().catch(err => {
+        console.log("Error getting document", err);
+        res.send("-1"); //Error getting the document
+    });
+    if(!postDoc.exists){
+        res.send("1"); //The wish doesn't exist
+    }
+    else{
+        dades.time=FieldValue.serverTimestamp();
+        postRef.update(dades).then(doc => {
+            res.send("0");
+            return null;
+        }).catch(err => {
+            console.log("An error have ocurred: ", err);
+            res.send("2"); //error trying to update the wish
+            return null;
+        });
+    }
+    return null;
+});
+
 
 function getParameters(params){
     let dataToModify = {};
