@@ -10,7 +10,8 @@ exports.offerCreated = functions.firestore.document('offer/{id}')
     const user = admin.firestore().collection("user").doc(username);
     return user.get().then(doc => {
         return user.update({
-            offer: [...doc.data().offer, offerID]
+            offer: [...doc.data().offer, offerID],
+            trofeo: admin.firestore.FieldValue.arrayUnion(1)
         });
     });
 });
@@ -22,7 +23,8 @@ exports.wishCreated = functions.firestore.document('wish/{id}')
     const user = admin.firestore().collection("user").doc(username);
     const doc = await user.get();
     return user.update({
-        wish: [...doc.data().wish, wishID]
+        wish: [...doc.data().wish, wishID],
+        trofeo: admin.firestore.FieldValue.arrayUnion(2)
     });
 });
 
@@ -46,6 +48,18 @@ exports.chatCreated = functions.firestore.document('chat/{id}')
     chats[username1] = chatID;
     await user2.update({
         chats: chats
+    });
+});
+
+exports.postCreated = functions.firestore.document('post/{id}')
+  .onCreate((snap, context) => {
+    const postID = context.params.id;
+    const username = snap.data()['user'];
+    const user = admin.firestore().collection("user").doc(username);
+    return user.get().then(doc => {
+        return user.update({
+            post: [...doc.data().post, postID]
+        });
     });
 });
 
@@ -111,4 +125,19 @@ exports.userDeleted = functions.firestore.document('user/{username}')
       promises.push(promise)
     });
     return Promise.all(promises);
+});
+
+exports.postDeleted = functions.firestore.document('post/{id}')
+  .onDelete(async (snap, context) => {
+    const postID = context.params.id;
+    const username = snap.data()['user'];
+    const user = admin.firestore().collection("user").doc(username);
+    const doc = await user.get();
+    if(doc.exists){
+      return user.update({
+          post: doc.data().post.filter(value => {return value !== postID})
+      });
+    } else {
+      return null;
+    }
 });
