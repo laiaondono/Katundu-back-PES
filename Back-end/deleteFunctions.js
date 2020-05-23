@@ -15,6 +15,12 @@ exports.wish = functions.https.onRequest(async (req, res) => {
     return wishRef.delete().then(() => res.send("0"));
 });
 
+exports.post = functions.https.onRequest(async (req, res) => {
+    const id = req.query.id;
+    var postRef = admin.firestore().collection('post').doc(id);
+    return postRef.delete().then(() => res.send("0"));
+});
+
 exports.favorite = functions.https.onRequest(async (req, res) => {
     const user = req.query.un;
     const id = req.query.id;
