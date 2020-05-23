@@ -124,6 +124,12 @@ exports.userDeleted = functions.firestore.document('user/{username}')
       let promise = wishRef.delete();
       promises.push(promise)
     });
+    const posts = snap.data()['post'];
+    posts.forEach(element => {
+      var postRef = admin.firestore().collection('post').doc(element);
+      let promise = postRef.delete();
+      promises.push(promise)
+    });
     return Promise.all(promises);
 });
 
