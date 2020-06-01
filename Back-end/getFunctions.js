@@ -143,6 +143,15 @@ exports.posts = functions.https.onRequest(async (req, res) => {
 
 });
 
+exports.trofeos = functions.https.onRequest(async (req, res) => {
+    const user = req.query.user;
+    let trofeos = await getCollection(user, "trofeo").catch(err => {
+        console.log(err);
+        res.send("1");
+    });
+    res.send(trofeos);
+});
+
 async function getCollection(user, nameColl){
     let docRef = admin.firestore().collection("user").doc(user);  // all data from user
     let collection = [];
