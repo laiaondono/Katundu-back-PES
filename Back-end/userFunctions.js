@@ -50,6 +50,7 @@ exports.add = functions.https.onRequest(async (req, res) => {
         dataToAdd.wish = [];
         dataToAdd.favorite = [];
         dataToAdd.post = [];
+        dataToAdd.trofeo = []
         dataToAdd.distanciamaxima = 10;
 	dataToAdd.valoracio = -1;
         let setnewdata = userRef.set(dataToAdd);
