@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Katundu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/katunduStyles.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/img/favicon.ico' />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/loading.js"></script>
+</head>
+
+<body onload="loading(3000)">
+    
+    <header>
+        <nav>
+            <a class="home">home</a>
+            <a class="profile">profile</a>
+            <a class="chats">chats</a>
+            <a class="logout">logout</a>
+        </nav>
+    </header>
+
+    <section class="content" id="app">
+        <div id="barra" class="modal active">
+            <nav>
+                <a class="chats" v-on:click="goToChats()">Chats</a>
+                <a class="actual" v-on:click="goToChat(-1)">Actual Chat</a>
+                <a class="new" v-on:click="goToNewChat()">New Chat</a>
+            </nav>
+        </div>
+        
+        <div id="offers" class="modal first">
+            <h2>Chats</h2>
+            <input type="search" v-model="search" placeholder="Search chat">
+            <ul class="request-list">
+                <li class="chat" v-for="chat in filterChats()">
+                    <div class="name" v-on:click="goToChat(chat.id)">{{ chat.user }}</div>
+                </li>
+            </ul>
+        </div>
+
+        <div id="messages" class="modal">
+            <h2>Chat</h2>
+            <section v-if="idChat !== -1">
+                <div class="sendingMessage">
+                    <input type="text" id="newMessage" v-model="messageToSend" placeholder="Write a message">
+                    <button v-on:click="sendMessage()" type="button">Send Message</button>
+                </div>
+                <ul class="chat-list" id="chat-list">
+                    <li class="message" v-for="message in chatMessages">
+                        <div :class="message.owner">
+                            <p class="text">{{ message.message }}</p>
+                            <p class="time">{{message.order}}</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div id="newChat" class="modal">
+            <h2>New Chat</h2>
+            <input type="search" v-model="search" placeholder="Search user">
+            <ul class="request-list">
+                <li class="newChat" v-for="user in filterUsers()">
+                    <div class="name" v-on:click="startChat(user)">{{ user.username }}</div>
+                    <div>{{ user.name }}</div>
+                </li>
+            </ul>
+        </div>
+        
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script src="/__/firebase/7.13.1/firebase-app.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-auth.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-functions.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="js/auth.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/chatInfo.js"></script>
+</body>
+
+</html>

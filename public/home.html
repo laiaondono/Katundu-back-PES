@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Katundu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/katunduStyles.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/img/favicon.ico' />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/loading.js"></script>
+</head>
+
+<body onload="loading(2000)">
+    
+    <header>
+        <nav>
+            <a class="home">home</a>
+            <a class="profile">profile</a>
+            <a class="chats">chats</a>
+            <a class="logout">logout</a>
+        </nav>
+    </header>
+
+    <section class="content" id="app">
+
+        <div id="barra" class="modal active">
+            <nav>
+                <a class="offers" v-on:click="goToOffers()">Home</a>
+                <a class="surprise" v-on:click="goToSurprise()">Surprise Me</a>
+                <a class="interest" v-on:click="goToInterests()">Interests</a>
+                <a class="match" v-on:click="goToMatch()">Matchs</a>
+            </nav>
+        </div>
+
+        <div id="home" class="modal first">
+            <h2>HOME</h2>
+            <p id="randomSentence"></p>
+
+            <section class="content">
+                <input type="search" v-model="search" placeholder="Filter">
+                <ul class="request-list">
+                    <li class="offer" v-for="request in filterOffer()">
+                        <div class="image"><img :src="request.url[0]" alt="LOGO" height="100%"></div>
+                        <div class="name" v-on:click="showInfoOffer(request)">{{ request.name }}</div>
+                        <div class="user">{{ request.user }}</div>
+                        <div class="value">{{ request.value }}€</div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div id="surprise" class="modal first">
+            <h2>SURPRISE!</h2>
+            <p><br>This feature is only available using the mobile app.</p>
+            <a id="downloadButton">DOWNLOAD THE APP NOW!</a>
+        </div>
+
+        <div id="interest" class="modal">
+            <h2>INTERESTS</h2>
+            <p>Here are some offers you might like</p>
+            <section class="content">
+                <ul class="request-list">
+                    <li class="offer" v-for="interest in myInterests">
+                        <div class="image"><img src="img/logo_sol.png" alt="LOGO" height="100%"></div>
+                        <div class="name" v-on:click="showInfoOffer(interest)">{{ interest.name }}</div>
+                        <div class="user">{{ interest.user }}</div>
+                        <div class="value">{{ interest.value }}€</div>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+        <div id="match" class="modal">
+            <h2>MATCHES</h2>
+            <p><br>This feature is only available using the mobile app.</p>
+            <a id="downloadButton">DOWNLOAD THE APP NOW!</a>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script src="/__/firebase/7.13.1/firebase-app.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-auth.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-functions.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-storage.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="js/auth.js"></script>
+    <script src="js/offers.js"></script>
+    <script src="js/home.js"></script>
+</body>
+
+</html>

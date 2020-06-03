@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Katundu</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/katunduStyles.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/img/favicon.ico' />
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="js/loading.js"></script>
+</head>
+
+<body onload="loading(2500)">
+    
+    <header>
+        <nav>
+            <a class="home">home</a>
+            <a class="profile">profile</a>
+            <a class="chats">chats</a>
+            <a class="logout">logout</a>
+        </nav>
+    </header>
+
+    <section class="content" id="app">
+        <div id="barra" class="modal active">
+            <nav>
+                <a class="offers" v-on:click="goToOffers()">My Offers</a>
+                <a class="wishes" v-on:click="goToWishes()">My Wishes</a>
+                <a class="favorites" v-on:click="goToFavorites()">My Favorites</a>
+                <a class="info" v-on:click="goToInfo()">My Profile</a>
+            </nav>
+        </div>
+        
+        <div id="offers" class="modal">
+            <h2>My Offers</h2>
+            <button onclick="newOffer()">Add New Offer</button><br>
+            <ul class="request-list">
+                <li class="offer" v-for="offer in myOffers">
+                    <div class="image"><img :src="offer.url[0]" alt="NO IMAGE TO SHOW" height="100%"></div>
+                    <div class="name" v-on:click="showInfoOffer(offer)">{{ offer.name }}</div>
+                    <div class="user">{{ offer.user }}</div>
+                    <div class="value">{{ offer.value }}€</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="wishes" class="modal">
+            <h2>My Wishes</h2>
+            <button onclick="newWish()">Add New Wish</button><br>
+            <ul class="request-list">
+                <li class="wish" v-for="wish in myWishes">
+                    <div class="image"></div>
+                    <div class="name">{{ wish.name }}</div>
+                    <div class="user"></div>
+                    <div class="value">{{ wish.value }}€</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="favorites" class="modal">
+            <h2>My Favorites</h2>
+            <ul class="request-list">
+                <li class="favorite" v-for="favorite in myFavorites">
+                    <div class="image"><img :src="favorite.url[0]" alt="NO IMAGE TO SHOW" height="100%"></div>
+                    <div class="name" v-on:click="showInfoFavorite(favorite)">{{ favorite.name }}</div>
+                    <div class="user"></div>
+                    <div class="value">{{ favorite.value }}€</div>
+                </li>
+            </ul>
+        </div>
+        
+        <div id="info" class="modal">
+            <h2 id="userName">{{ user.username }}</h2>
+            <form id="update" class="updateForm">
+                <input type="text" name="name" placeholder="Name">
+                <input type="number" name="distance" placeholder="Maximum distance (in km)">
+                <input type="password" name="password" placeholder="Password (for the app only)">
+            </form>
+            <button class="getUID" onclick="updateUserInfo()">Update info</button>
+        </div>
+
+        <div id="home" class="modal first">
+            <h2>Welcome to your profile</h2>
+            <p>What do you want to see?</p>
+        </div>
+        
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+    <script src="/__/firebase/7.13.1/firebase-app.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-auth.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-functions.js"></script>
+    <script src="/__/firebase/7.13.1/firebase-storage.js"></script>
+    <script src="/__/firebase/init.js"></script>
+
+    <script src="js/auth.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/userInfo.js"></script>
+</body>
+
+</html>
