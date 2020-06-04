@@ -152,6 +152,42 @@ exports.trofeos = functions.https.onRequest(async (req, res) => {
     res.send(trofeos);
 });
 
+
+async function getOffers() {
+    const snapshot = await admin.firestore().collection('offer').get()
+    return snapshot.docs.map(doc => {
+        const data = doc.data();
+        data.id = doc.id;
+        return data;
+    });
+}
+
+function getDistanceFromLatLonInKm(user1, user2) {
+    var lat1 = parseFloat(user1.latitud);
+    var lon1 = parseFloat(user1.longitud);
+    var lat2 = parseFloat(user2.latitud);
+    var lon2 = parseFloat(user2.longitud);
+    var dismaxima = Math.min(parseFloat(user1.distanciamaxima), parseFloat(user2.distanciamaxima));
+    var R = 6371; // Radius of the earth in km
+    var dLat = deg2rad(lat2-lat1);  // deg2rad below
+    var dLon = deg2rad(lon2-lon1); 
+    var a = 
+      Math.sin(dLat/2) * Math.sin(dLat/2) +
+      Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * 
+      Math.sin(dLon/2) * Math.sin(dLon/2)
+      ; 
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c; // Distance in km
+    if(d<=dismaxima){
+        return true;
+    }
+    else return false;
+  }
+  
+function deg2rad(deg) {
+    return deg * (Math.PI/180);
+}
+
 async function getCollection(user, nameColl){
     let docRef = admin.firestore().collection("user").doc(user);  // all data from user
     let collection = [];
