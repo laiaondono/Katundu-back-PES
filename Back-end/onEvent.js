@@ -36,7 +36,11 @@ exports.chatCreated = functions.firestore.document('chat/{id}')
     // afegim la referencia al chat a l'usuari 1
     const user1 = admin.firestore().collection("user").doc(username1);
     const doc1 = await user1.get();
-    let chats = doc1.data().chats;
+    let chats = {}
+    chats = {}
+    if(doc1.data().hasOwnProperty('chats')){
+        chats = doc1.data().chats;
+    }
     chats[username2] = chatID;
     await user1.update({
         chats: chats
@@ -44,7 +48,10 @@ exports.chatCreated = functions.firestore.document('chat/{id}')
     // afegiom la referencia al chat a l'usuari 2
     const user2 = admin.firestore().collection("user").doc(username2);
     const doc2 = await user2.get();
-    chats = doc2.data().chats;
+    chats = {}
+    if(doc2.data().hasOwnProperty('chats')){
+        chats = doc2.data().chats;
+    }
     chats[username1] = chatID;
     await user2.update({
         chats: chats
@@ -61,6 +68,13 @@ exports.postCreated = functions.firestore.document('post/{id}')
             post: [...doc.data().post, postID]
         });
     });
+});
+
+exports.userCreated = functions.firestore.document('user/{id}')
+  .onCreate((snap, context) => {
+    const username = snap.data()['user'];
+    const valoracio = admin.firestore().collection("valoracio").doc(username);
+    return valoracio.set({valoracio: []});
 });
 
 exports.messageCreated = functions.firestore.document('chat/{id}/messages/{idMessage}')
@@ -166,12 +180,4 @@ exports.postDeleted = functions.firestore.document('post/{id}')
     } else {
       return null;
     }
-});
-
-exports.userModified = functions.firestore.document('user/{username}')
-  .onWrite(async (snap, context) => {
-    const user = admin.firestore().collection("user").doc(context.params.username);
-    return user.update({
-        trofeo: admin.firestore.FieldValue.arrayUnion(0)
-    });
 });
