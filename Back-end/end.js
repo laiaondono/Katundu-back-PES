@@ -47,8 +47,22 @@ exports.done = functions.firestore.document('exchanges/{id}')
   const offerID = context.params.id;
   const username = snap.data()['user'];
   const user = admin.firestore().collection("user").doc(username);
-  return user.update({
+  return user.get().then(doc =>{
+    let intercanvis = doc.data().exchange;
+    let favoritos = doc.data().favorite;
+    let trofeo = 7;
+    if (intercanvis.length>=4) trofeo = 8;
+    if (intercanvis.length>=11) trofeo = 9;
+    if (intercanvis.length>=24) trofeo = 10;
+    if (intercanvis.length>=49) trofeo = 11;
+    if (intercanvis.length>=99) trofeo = 12;
+    if (intercanvis.length>=249) trofeo = 13;
+    if (intercanvis.length>=499) trofeo = 14;
+    if (intercanvis.length>=999) trofeo = 15;
+    return user.update({
         exchange:  admin.firestore.FieldValue.arrayUnion(offerID),
-    //   trofeo: admin.firestore.FieldValue.arrayUnion(1)
-  });
+        trofeo: admin.firestore.FieldValue.arrayUnion(trofeo)
+    });
+  })
+
 });
