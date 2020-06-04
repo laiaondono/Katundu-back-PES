@@ -181,3 +181,11 @@ exports.postDeleted = functions.firestore.document('post/{id}')
       return null;
     }
 });
+
+exports.userModified = functions.firestore.document('user/{username}')
+  .onWrite(async (snap, context) => {
+    const user = admin.firestore().collection("user").doc(context.params.username);
+    return user.update({
+        trofeo: admin.firestore.FieldValue.arrayUnion(0)
+    });
+});
