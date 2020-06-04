@@ -154,6 +154,12 @@ function getParameters(params) {
     if (params.hasOwnProperty('a')) {
         dataToModify.answer = params.a;
     }
+    if (params.hasOwnProperty('bdate')) {
+        dataToModify.bdate = params.bdate;
+    }
+    if (params.hasOwnProperty('description')) {
+        dataToModify.description = params.description;
+    }
     return dataToModify;
 }
 
