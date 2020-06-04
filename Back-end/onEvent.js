@@ -71,6 +71,26 @@ exports.messageCreated = functions.firestore.document('chat/{id}/messages/{idMes
     let dateAsISOString = date.toISOString();
     let stringToShow = `Message ${messageID} added to ${chatID} at ${dateAsISOString}`;
     console.log(stringToShow);
+
+    const chatRef = admin.firestore().collection("chat").doc(chatID);
+    chatRef.get().then(doc => {
+      var message = {
+        notification : {
+            title: snap.data().username,
+            body: snap.data().message
+        },
+      };
+      if(doc.data().user1 !== snap.data().username){
+        return admin.messaging().sendToTopic(doc.data().user1, message);
+      }
+      else {
+        return admin.messaging().sendToTopic(doc.data().user2, message);
+      }
+    }).catch(err => {
+      console.log(err);
+      return null;
+    });
+
     const messageRef = admin.firestore().collection("chat").doc(chatID).collection('messages').doc(messageID);
     return messageRef.update({
       time: date,
