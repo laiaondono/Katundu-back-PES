@@ -52,7 +52,7 @@ exports.add = functions.https.onRequest(async (req, res) => {
         dataToAdd.post = [];
         dataToAdd.trofeo = []
         dataToAdd.distanciamaxima = 10;
-	dataToAdd.valoracio = -1;
+        dataToAdd.valoracio = -1;
         let setnewdata = userRef.set(dataToAdd);
         res.send("0"); // User Created
         return setnewdata;
@@ -68,7 +68,7 @@ exports.modify = functions.https.onRequest(async (req, res) => {
         res.send("-1"); //Error getting the document
         return null;
     });
-    if(!userDoc.exists){
+    if (!userDoc.exists) {
         res.send("1"); //The user doesn't exist
         return null;
     } else {
@@ -78,7 +78,7 @@ exports.modify = functions.https.onRequest(async (req, res) => {
 });
 
 //Delete account function
-exports.delete = functions.https.onRequest(async (req,res) => {
+exports.delete = functions.https.onRequest(async (req, res) => {
     //Grabing the parameters
     const un = req.query.un;
     //Deleting the account
@@ -87,9 +87,9 @@ exports.delete = functions.https.onRequest(async (req,res) => {
         console.log('Error deleting', err);
         res.send("-1");
         return null;
-    });  
+    });
     userRef.get().then(doc => {
-        if(!doc.exists) {
+        if (!doc.exists) {
             res.send("0");
         }
         else {
@@ -103,29 +103,29 @@ exports.delete = functions.https.onRequest(async (req,res) => {
     });
 });
 
-exports.search = functions.https.onRequest(async (req,res) => {
+exports.search = functions.https.onRequest(async (req, res) => {
 
-	const un = req.query.un;
-	
-  let user = admin.firestore().collection('user').doc(un);
-  
-  let getDoc = user.get().then(doc => {
-    if (!doc.exists) {
-      res.send("1"); //The user doesn't exist
-      return null;
-    } else {
-      let data = {
-        name : doc.data().name
-      }
+    const un = req.query.un;
 
-      res.send(data);//usuari existeix
-      return null;
-    }
-  }).catch(err =>{
-		console.log('Error getting the user info', err);
-		res.send("-1");
-  });
-  
+    let user = admin.firestore().collection('user').doc(un);
+
+    let getDoc = user.get().then(doc => {
+        if (!doc.exists) {
+            res.send("1"); //The user doesn't exist
+            return null;
+        } else {
+            let data = {
+                name: doc.data().name
+            }
+
+            res.send(data);//usuari existeix
+            return null;
+        }
+    }).catch(err => {
+        console.log('Error getting the user info', err);
+        res.send("-1");
+    });
+
 });
 
 function getParameters(params) {
@@ -148,26 +148,36 @@ function getParameters(params) {
     if (params.hasOwnProperty('distanciamaxima')) {
         dataToModify.distanciamaxima = params.distanciamaxima;
     }
+    if (params.hasOwnProperty('q')) {
+        dataToModify.question = params.q;
+    }
+    if (params.hasOwnProperty('a')) {
+        dataToModify.answer = params.a;
+    }
     return dataToModify;
 }
 
+exports.SecurityQuestion = functions.https.onRequest(async (req, res) => {
 
+    const un = req.query.un;
 
-// // auth trigger (new user signup)
-// exports.SignUp = functions.auth.user().onCreate(user => {
-//     // for background triggers you must return a value/promise
-//     return admin.firestore().collection('user').doc(user.uid).set({
-//         name: "",
-//         latitud: 0,
-//         longitud: 0,
-//         offer: [],
-//         wish: [],
-//         favorite: []
-//     });
-// });
+    let user = admin.firestore().collection('user').doc(un);
 
-// // auth trigger (user deleted)
-// exports.Deleted = functions.auth.user().onDelete(user => {
-//     const doc = admin.firestore().collection('users').doc(user.uid);
-//     return doc.delete();
-// });
+    user.get().then(doc => {
+        if (!doc.exists) {
+            res.send("1"); //The user doesn't exist
+            return null;
+        } else {
+            let data = {
+                question: doc.data().question,
+                answer: doc.data().answer
+            }
+            res.send(data);//usuari existeix
+            return null;
+        }
+    }).catch(err => {
+        console.log('Error getting the user info', err);
+        res.send("-1");
+    });
+
+});
